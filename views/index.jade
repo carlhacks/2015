@@ -3,3 +3,14 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  form(action="/users/new", method="post")
+    div
+        div
+            span Name :
+            input(type="text", name="name", id="editUserName")
+        div
+            span Email :
+            input(type="text", name="email", id="editUserEmail")
+        div#editUserSubmit
+            input(type="submit", value="Send")
+  a(href='/users') View All Users
