@@ -9,8 +9,8 @@ var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/carlhacks');
-var db = mongoose.connection;
+// mongoose.connect('mongodb://localhost/carlhacks');
+var db = null; //mongoose.connection;
 var app = express();
 
 // all environments
@@ -30,10 +30,10 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  console.log('Mongo db ready!');
-});
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function callback () {
+//   console.log('Mongo db ready!');
+// });
 var User = mongoose.model('User', {name: String, email: String})
 
 app.get('/', routes.index);
