@@ -26,24 +26,30 @@ block content
           .form-group
             label.control-label.col-sm-4(for='user-name') Full Name*
             .col-sm-8
-              input.form-control(id='user-name', type='text',name='user_name',required)
+              input.form-control(id='user-name', type='text',name='user[name]',required)
           .form-group
             label.control-label.col-sm-4(for='user-email') Email*
             .col-sm-8
-              input.form-control(id='user-email', type='text',name='user_email',required)
+              input.form-control(id='user-email', type='text',name='user[email]',required)
+          .form-group
+            label.control-label.col-sm-4(for='user-bracket') Select Bracket*
+            .col-sm-8
+              select.form-control(id='user-bracket',name='user[bracket]')
+                option(value='12') 12 Hour
+                option(value='4') 4 Hour
           .form-group
             label.control-label.col-sm-4(for='user-team-name') Team name
             .col-sm-8
-              input.form-control(id='user-team-name', type='text',name='user_team_name',placeholder='optional')
+              input.form-control(id='user-team-name', type='text',name='user[team_name]',placeholder='optional')
           .form-group
             label.control-label.col-sm-4(for='user-team-members') Team members
             .col-sm-8
-              input.form-control(id='user-team-members', type='text',name='user_team_members',placeholder='optional')
+              input.form-control(id='user-team-members', type='text',name='user[team_members]',placeholder='optional')
           .form-group
             label.control-label.col-sm-4(for='user-need-team') Looking for a team
             .col-sm-8
               .checkbox
-                input(id='user-need-team', type="checkbox", name="user_need_team", checked=(true===false ? "checked" : undefined))
+                input(id='user-need-team', type="checkbox", name="user[need_team]", checked=(true===false ? "checked" : undefined))
         fieldset
           hr
           .form-group

@@ -1,13 +1,3 @@
-// var http = require("http");
-
-// http.createServer(function(req, res) {
-//     res.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
-//     res.end('<!DOCTYPE html><html><meta charset="utf-8"><title>It works' +
-//             "</title><b>It works!</b><br /><br />This is the server's " +
-//             "default server.js.");
-// }).listen(8080);
-// console.log("Server ready to accept requests on port 8080");
-
 /**
  * Module dependencies.
  */
@@ -43,7 +33,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
   console.log('MongoDB open and ready');
 });
-var User = mongoose.model('User', {name: String, email: String, needTeam: Boolean, teamName: String, teamMates: String})
+var User = mongoose.model('User', {name: String, email: String, bracket: String, needTeam: Boolean, teamName: String, teamMates: String})
 
 app.get('/', function(req, res){
   User.count({}, function( err, count){
@@ -63,12 +53,14 @@ app.get('/users', function (req, res){
 });
 
 app.post('/users/new', function (req, res) {
+  console.dir(req.body);
   var user = new User({
-      name: req.body['user_name'],
-      email: req.body['user_email'],
-      needTeam: req.body['user_need_team'], 
-      teamName: req.body['user_team_name'], 
-      teamMates: req.body['user_team_members']
+      name: req.body.user.name,
+      email: req.body.user.email,
+      bracket: req.body.user.bracket,
+      needTeam: req.body.user.need_team, 
+      teamName: req.body.user.team_name, 
+      teamMates: req.body.user.team_members
   });
   user.save(function (error, user) {
     if(error) console.log("error!");
