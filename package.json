@@ -10,7 +10,9 @@
     "express": "3.x",
     "mongodb": "1.3.x",
     "jade": "*",
-    "stylus": "*"
+    "stylus": "*",
+    "jquery": "*",
+    "twitter-bootstrap": "*"
   },
   "engines": {
     "node": "< 0.10"
