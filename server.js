@@ -45,7 +45,11 @@ db.once('open', function callback () {
 });
 var User = mongoose.model('User', {name: String, email: String, needTeam: Boolean, teamName: String, teamMates: String})
 
-app.get('/', routes.index);
+app.get('/', function(req, res){
+  User.count({}, function( err, count){
+    res.render('index', { title: 'Express', count: count });
+  })
+});
 app.get('/register', routes.register);
 
 app.get('/users', function (req, res){

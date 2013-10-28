@@ -17,9 +17,9 @@ block content
       .starter-template
         h1 Reserve your place
         p.lead.
-          Use this document as a way to quickly start any new project
+          #{count} hackers have already registered.
           <br>
-          All you get is this text and mostly barebones HTML document.
+          You could be number #{count + 1}.
     .container
       form.form-horizontal(action="/users/new", method="post")
         fieldset
