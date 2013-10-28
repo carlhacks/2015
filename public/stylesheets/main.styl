@@ -19,6 +19,9 @@ box-shadow()
   text-align: center
 a
   color: #00B7FF
+.border
+  border-top: 1px solid #ccc
+  border-bottom: 1px solid #ccc
 
 // 1
 .logo
@@ -42,7 +45,7 @@ a
   background-size cover
 
 .hero
-  padding-top: 24px
+  padding-top: 46px
   width: 300px
   height: auto
   text-align: left
@@ -61,10 +64,21 @@ a
   margin: 5px 0
 
 // 3
+form
+  max-width: 600px
+  margin: 0 auto
+input
+  max-width: 300px
+::-webkit-input-placeholder
+  font-style: italic
+::-moz-placeholder
+  font-style: italic
+
+// 4
 .footer
   background-color: #000
   background: url("/img/footer.jpg") no-repeat center 100%
-  color: #aaa
+  color: #bbb
   text-align: center
   padding: 1.5em 0
   p

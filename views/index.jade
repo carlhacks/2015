@@ -1,33 +1,56 @@
 extends layout
 
 block content
-  .logo
+  .header
+  .logo.border
     img#logo(src="img/carlhacks2.png")
+  .header
   .blurry-wrap
     .blurry.bg
       .container
         .hero
           h2 One night to build something awesome.
-          h3 Nov. 1, 9PM - Nov. 2, 9AM
+          h3 Nov. 1, 9PM – Nov. 2, 9AM
           h3 CMC 308
-  .container
-    .starter-template
-      h1 Bootstrap starter template
-      p.lead
-        Use this document as a way to quickly start any new project
-        <br>
-        All you get is this text and mostly barebones HTML document.
-      form(action="/users/new", method="post")
-        div
-            div
-                span Name :
-                input(type="text", name="name", id="editUserName")
-            div
-                span Email :
-                input(type="text", name="email", id="editUserEmail")
-            div#editUserSubmit
-                input(type="submit", value="Send")
-      a(href='/users') View All Users
+  .border
+    .container
+      .starter-template
+        h1 Reserve your place
+        p.lead.
+          Use this document as a way to quickly start any new project
+          <br>
+          All you get is this text and mostly barebones HTML document.
+    .container
+      form.form-horizontal(action="/users/new", method="post")
+        fieldset
+          .form-group
+            label.control-label.col-sm-4(for='user-name') Full Name*
+            .col-sm-8
+              input.form-control(id='user-name', type='text',name='user_name',required)
+          .form-group
+            label.control-label.col-sm-4(for='user-email') Email*
+            .col-sm-8
+              input.form-control(id='user-email', type='text',name='user_email',required)
+          .form-group
+            label.control-label.col-sm-4(for='user-team-name') Team name
+            .col-sm-8
+              input.form-control(id='user-team-name', type='text',name='user_team_name',placeholder='optional')
+          .form-group
+            label.control-label.col-sm-4(for='user-team-members') Team members
+            .col-sm-8
+              input.form-control(id='user-team-members', type='text',name='user_team_members',placeholder='optional')
+          .form-group
+            label.control-label.col-sm-4(for='user-need-team') Looking for a team
+            .col-sm-8
+              .checkbox
+                input(id='user-need-team', type="checkbox", name="user_need_team", checked=(true===false ? "checked" : undefined))
+        fieldset
+          hr
+          .form-group
+            .col-sm-8.col-sm-offset-4
+              input(type="submit", value="Send", class="btn btn-primary")
+        br
+        br
   .footer.bg
     p
       span © Carleton Computing Society 2013
