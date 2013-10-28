@@ -2,10 +2,14 @@ extends layout
 
 block content
   .logo
-    img#logo(src="img/carlhacks.png")
-  .blurry
-    .container
-      .hero The premier liberal arts college hackathon
+    img#logo(src="img/carlhacks2.png")
+  .blurry-wrap
+    .blurry.bg
+      .container
+        .hero
+          h2 One night to build something awesome.
+          h3 Nov. 1, 9PM - Nov. 2, 9AM
+          h3 CMC 308
   .container
     .starter-template
       h1 Bootstrap starter template
@@ -24,3 +28,6 @@ block content
             div#editUserSubmit
                 input(type="submit", value="Send")
       a(href='/users') View All Users
+  .footer.bg
+    p
+      span © Carleton Computing Society 2013

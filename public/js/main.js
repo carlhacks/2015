@@ -4,6 +4,6 @@ $(document).ready(function() {
         percent = 100-Math.max(0, Math.min(100, percent));
         console.log(percent);
         var coords = 'center ' + percent + '%';
-        $('.blurry').css({ backgroundPosition: coords });
+        $('.bg').css({ backgroundPosition: coords });
     })
 });
