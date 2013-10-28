@@ -16,10 +16,13 @@ block content
     .container
       .starter-template
         h1 Reserve your place
-        p.lead.
-          #{count} hackers have already registered.
-          <br>
-          You could be number #{count + 1}.
+        br
+        p.lead
+          | What could you build in 12 hours?
+          br
+          | Bring your ideas, passion, and laptop (optional) to the CMC
+          br
+          | this Friday and join us for coding, pizza, and prizes.
     .container
       form.form-horizontal(action="/users/new", method="post")
         fieldset
@@ -55,8 +58,11 @@ block content
           .form-group
             .col-sm-8.col-sm-offset-4
               input(type="submit", value="Send", class="btn btn-primary")
-        br
-        br
+              .note
+                | #{count} hackers have already registered.
+      br
+      br
+
   .footer.bg
     p
       span © Carleton Computing Society 2013
