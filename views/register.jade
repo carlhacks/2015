@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  form(action="/users/new", method="post")
+    div
+      div
+        label(for='user-name') *Full Name: 
+        input(id='user-name', type='text',name='user_name',placeholder='Carl Hacks',required)
+        br
+        label(for='user-email') *Email: 
+        input(id='user-email', type='text',name='user_email',placeholder='register@carlhacks.io',required)
+      div
+        br
+        label(for='user-need-team') Looking for a team:
+        input(id='user-need-team', type="checkbox", name="user_need_team", checked=(true===false ? "checked" : undefined))
+        br
+        label(for='user-team-name') Team name:
+        input(id='user-team-name', type='text',name='user_team_name',placeholder='Flying Walrii')
+        br
+        label(for='user-team-members') Team members:
+        textarea(id='user-team-members', name='user_team_members',placeholder='Matt, Ken, Daniel')
+      input(type="submit", value="Send", class="btn")
+  a(href='/users') View All Users

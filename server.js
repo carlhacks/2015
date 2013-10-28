@@ -26,7 +26,7 @@ var app = express();
 app.set('port', process.env.PORT || 8080);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.favicon());
+app.use(express.favicon(path.join(__dirname, 'public/images/favicon.ico')));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -43,9 +43,10 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
   console.log('MongoDB open and ready');
 });
-var User = mongoose.model('User', {name: String, email: String})
+var User = mongoose.model('User', {name: String, email: String, needTeam: Boolean, teamName: String, teamMates: String})
 
 app.get('/', routes.index);
+app.get('/register', routes.register);
 
 app.get('/users', function (req, res){
   User.find({}, function (error, users){
@@ -59,8 +60,11 @@ app.get('/users', function (req, res){
 
 app.post('/users/new', function (req, res) {
   var user = new User({
-      name: req.param('name'),
-      email: req.param('email')
+      name: req.body['user_name'],
+      email: req.body['user_email'],
+      needTeam: req.body['user_need_team'], 
+      teamName: req.body['user_team_name'], 
+      teamMates: req.body['user_team_members']
   });
   user.save(function (error, user) {
     if(error) console.log("error!");
