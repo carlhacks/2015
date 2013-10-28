@@ -41,7 +41,7 @@ if ('development' == app.get('env')) {
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
-  console.log('Mongo db ready!');
+  console.log('MongoDB open and ready');
 });
 var User = mongoose.model('User', {name: String, email: String})
 
