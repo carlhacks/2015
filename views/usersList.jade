@@ -4,5 +4,8 @@ h1= title
     div.user
       div.name= user.name
       div.email= user.email
+      div.needteam= (user.needTeam ? 'Needs a team' : 'Does not need a team')
+      div.teamname= user.teamName
+      div.teammates= user.teamMates
     hr
 a(href='/') Home
