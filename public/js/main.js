@@ -23,6 +23,9 @@ var adjust_parallax = function(event) {
 }
 
 $(document).ready(function() {
+    $.get('/count',{},function(data){
+        $('#hacker-count').text(data.count);
+    });
     if(!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
         adjust_parallax();
         $(window).scroll(function() {

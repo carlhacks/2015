@@ -16,7 +16,6 @@ var app = express();
 app.set('port', process.env.PORT || 8080);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.favicon(path.join(__dirname, 'public/img/favicon.png')));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -38,6 +37,12 @@ var User = mongoose.model('User', {name: String, email: String, bracket: String,
 app.get('/', function(req, res){
   User.count({}, function( err, count){
     res.render('index', { title: 'CarlHacks', count: count });
+  })
+});
+
+app.get('/count', function(req, res){
+  User.count({}, function( err, count){
+    res.send({ count: count });
   })
 });
 // app.get('/register', routes.register);
