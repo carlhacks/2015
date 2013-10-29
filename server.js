@@ -53,7 +53,6 @@ app.get('/users', function (req, res){
 });
 
 app.post('/users/new', function (req, res) {
-  console.dir(req.body);
   var user = new User({
       name: req.body.user.name,
       email: req.body.user.email,
