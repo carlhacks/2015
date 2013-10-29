@@ -45,12 +45,13 @@ a
   height: 450px
   background: url("/img/blurry1.jpg") no-repeat center 100%
   background-size cover
-  transition: background-position 20ms linear;
+@media (min-width: 990px)
+  .img-1
+    height: 550px
 .img-2
   height: 320px
   background: url("/img/blurry2.jpg") no-repeat center 100%
   background-size cover
-  transition: background-position 20ms linear;
 
 .lead
   max-width: 540px
@@ -65,6 +66,9 @@ a
   font-weight: bold
   text-shadow: 0px 1px 8px rgba(0,0,0,0.5)
   background-color: rgba(0,0,0,.3)
+@media (min-width: 990px)
+  .hero
+    margin-top: 350px
 
 .hero h2
   font-size: 32px
