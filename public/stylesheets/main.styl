@@ -42,23 +42,27 @@ a
   min-width: 1008px
   width: 100%
 .img-1
-  height: 450px
   background: url("/img/blurry1.jpg") no-repeat center 100%
   background-size cover
-@media (min-width: 990px)
-  .img-1
+  height: 450px
+  @media (min-width: 990px)
     height: 550px
+  @media (min-width: 1300px)
+    height: 650px
 .img-2
-  height: 320px
   background: url("/img/blurry2.jpg") no-repeat center 100%
   background-size cover
+  height: 320px
+  @media (min-width: 990px)
+    height: 420px
+  @media (min-width: 1300px)
+    height: 520px
 
 .lead
   max-width: 540px
   margin: 0 auto
 .hero
   padding: 1em
-  margin-top: 250px
   width: 540px
   height: auto
   text-align: left
@@ -66,9 +70,11 @@ a
   font-weight: bold
   text-shadow: 0px 1px 8px rgba(0,0,0,0.5)
   background-color: rgba(0,0,0,.3)
-@media (min-width: 990px)
-  .hero
+  margin-top: 250px
+  @media (min-width: 990px)
     margin-top: 350px
+  @media (min-width: 1300px)
+    margin-top: 450px
 
 .hero h2
   font-size: 32px
