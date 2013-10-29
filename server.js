@@ -39,6 +39,12 @@ app.get('/', function(req, res){
     res.render('index', { title: 'CarlHacks', count: count });
   })
 });
+
+app.get('/count', function(req, res){
+  User.count({}, function( err, count){
+    res.send({ count: count });
+  })
+});
 // app.get('/register', routes.register);
 
 app.get('/users', function (req, res){
