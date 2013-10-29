@@ -37,7 +37,7 @@ var User = mongoose.model('User', {name: String, email: String, bracket: String,
 
 app.get('/', function(req, res){
   User.count({}, function( err, count){
-    res.render('index', { title: 'Express', count: count });
+    res.render('index', { title: 'CarlHacks', count: count });
   })
 });
 app.get('/register', routes.register);

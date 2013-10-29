@@ -1,4 +1,6 @@
-var adjust_parallax = function() {
+var last_scroll;
+
+var adjust_parallax = function(event) {
     $('.bg').each(function() {
         var img_top = $(this).offset().top,
             img_height = $(this).height(),
@@ -13,14 +15,27 @@ var adjust_parallax = function() {
         var offset_max = Math.min(window_height, img_top + 40);
         var offset_min = -img_height;
         // Compute percent offset and use to adjust image position
-        var percent_offset = 100 * (offset - offset_min) / (offset_max - offset_min);
-        percent_offset = Math.max(0, Math.min(100, percent_offset));
+        var bonus = parseFloat($(this).attr("data-speed"));
+        var extra_percent = 100 * bonus * img_height / window_height;
+        var percent_offset = (100 + extra_percent) * (offset - offset_min) / (offset_max - offset_min) - extra_percent;
+        percent_offset = Math.max(-extra_percent, Math.min(100, percent_offset));
         var coords = 'center ' + percent_offset + '%';
         $(this).css({ backgroundPosition: coords });
     });
 }
 
 $(document).ready(function() {
-    adjust_parallax();
-    $(window).scroll(adjust_parallax);
+    last_scroll = new Date();
+    if(!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+        adjust_parallax();
+        $(window).scroll(function() {
+            // var current_time = new Date();
+            // if (current_time.getTime() - last_scroll.getTime() > 80) {
+                adjust_parallax();
+            // } else {
+            //     console.log("throttled");
+            // }
+            // last_scroll = current_time;
+        });
+    }
 });
