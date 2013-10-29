@@ -1,5 +1,3 @@
-var last_scroll;
-
 var adjust_parallax = function(event) {
     $('.bg').each(function() {
         var img_top = $(this).offset().top,
@@ -25,17 +23,10 @@ var adjust_parallax = function(event) {
 }
 
 $(document).ready(function() {
-    last_scroll = new Date();
     if(!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
         adjust_parallax();
         $(window).scroll(function() {
-            // var current_time = new Date();
-            // if (current_time.getTime() - last_scroll.getTime() > 80) {
-                adjust_parallax();
-            // } else {
-            //     console.log("throttled");
-            // }
-            // last_scroll = current_time;
+            adjust_parallax();
         });
     }
 });
