@@ -40,16 +40,20 @@ app.get('/', function(req, res){
     res.render('index', { title: 'CarlHacks', count: count });
   })
 });
-app.get('/register', routes.register);
+// app.get('/register', routes.register);
 
 app.get('/users', function (req, res){
-  User.find({}, function (error, users){
-    if (error) console.log("error!");
-    res.render('usersList.jade', {
-      title: 'Users',
-      users: users,
+  if (req.url==='/users?password=carlhacks9000'){
+    User.find({}, function (error, users){
+      if (error) console.log("error!");
+      res.render('usersList.jade', {
+        title: 'Users',
+        users: users,
+      });
     });
-  });
+  }else{
+    res.redirect('/');
+  }
 });
 
 app.post('/users/new', function (req, res) {
