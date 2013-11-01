@@ -13,8 +13,5 @@
     "stylus": "*",
     "jquery": "*",
     "twitter-bootstrap": "*"
-  },
-  "engines": {
-    "node": "< 0.10"
   }
 }

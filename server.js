@@ -13,7 +13,7 @@ var db = mongoose.connection;
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 80);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.logger('dev'));
@@ -36,7 +36,9 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
   console.log('MongoDB open and ready');
 });
-var User = mongoose.model('User', {name: String, email: String, bracket: String, needTeam: Boolean, teamName: String, teamMates: String})
+var myDb = require('./myDb');
+var User = myDb.User;
+var Project = myDb.Project;
 
 app.get('/', function(req, res){
   User.count({}, function( err, count){
@@ -49,7 +51,6 @@ app.get('/count', function(req, res){
     res.send({ count: count });
   })
 });
-// app.get('/register', routes.register);
 
 app.get('/users', function (req, res){
   if (req.url==='/users?password=carlhacks9000'){
