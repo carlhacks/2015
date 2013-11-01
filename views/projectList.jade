@@ -1,0 +1,18 @@
+h1= title
+#projects
+  - each project in projects
+    div.project
+      div Team #{project.tname}
+      div.bracket #{project.bracket} hour bracket
+      div Members:
+        - each person in project.tmems
+          span= person
+          br
+      div.description= project.description
+      
+      div Technologies Used:
+        - each tech in project.techs
+          span= tech
+          br
+    hr
+a(href='/') Home
