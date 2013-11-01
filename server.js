@@ -2,11 +2,11 @@
  * Module dependencies.
  */
 
-var express = require('express');
-var routes = require('./routes');
-var http = require('http');
-var path = require('path');
-var mongoose = require('mongoose');
+var express = require('express')
+  , routes = require('./routes')
+  , http = require('http')
+  , path = require('path')
+  , mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/carlhacks');
 var db = mongoose.connection;
@@ -22,6 +22,10 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(require('stylus').middleware(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.bodyParser({
+  keepExtensions: true,
+  uploadDir: '/tmp/uploads'
+}));
 
 // development only
 if ('development' == app.get('env')) {
@@ -61,6 +65,12 @@ app.get('/users', function (req, res){
   }
 });
 
+app.get('/submit', function (req, res) {
+  res.render('submit.jade', {
+    title: 'Submit'
+  });
+});
+
 app.post('/users/new', function (req, res) {
   var user = new User({
       name: req.body.user.name,
@@ -76,6 +86,13 @@ app.post('/users/new', function (req, res) {
   res.redirect('/');
 })
 
+
+// File upload
+app.post('/upload', function(req, res) {
+  console.log('Received image upload: %s saved to %s',
+    req.files.image.name,
+    req.files.image.path);
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
