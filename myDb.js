@@ -12,7 +12,7 @@ var Project = mongoose.model('Project',
     {tname: String,
      tmems: [String],
      bracket: String,
-     img: { data: Buffer, contentType: String },
+     img: String,
      description: String,
      techs: [String]
     });

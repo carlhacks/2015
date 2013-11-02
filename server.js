@@ -6,7 +6,8 @@ var express = require('express')
   , routes = require('./routes')
   , http = require('http')
   , path = require('path')
-  , mongoose = require('mongoose');
+  , mongoose = require('mongoose')
+  , fs = require('fs');
 
 mongoose.connect('mongodb://localhost/carlhacks');
 var db = mongoose.connection;
@@ -93,6 +94,16 @@ app.post('/upload', function(req, res) {
   console.log('Received image upload: %s saved to %s',
     req.files.image.name,
     req.files.image.path);
+});
+
+app.get('/imgs/:imgPath', function(req, res) {
+  var path = '/var/tmp/' + req.params.imgPath;
+  if(fs.existsSync(path)){
+    imgData = fs.readFileSync(path);
+    res.send(imgData);
+  }else{
+    res.send('', 404);
+  };
 });
 
 http.createServer(app).listen(app.get('port'), function(){
