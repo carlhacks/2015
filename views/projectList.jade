@@ -9,7 +9,7 @@ h1= title
           span= person
           br
       div.description= project.description
-      
+        img.screen-shot(src="img/#{project.img}")
       div Technologies Used:
         - each tech in project.techs
           span= tech
