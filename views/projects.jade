@@ -6,7 +6,8 @@ block content
   .sub-logo.border
     a(href="/")
       img#logo(src="../img/carlhacks.png")
-  - each project in projects
+  - rev_projects = projects.reverse()
+  - each project in rev_projects
     .border
       .container
         .col-xs-12.col-sm-8.col-sm-offset-2
@@ -18,6 +19,7 @@ block content
                 span.bracket  (#{project.bracket}-hour bracket)
               hr
               div.description= project.description
-              img.screen-shot(src="/imgs/#{project.img.url}/#{project.img.contentType}")
+              a(href="/imgs/#{project.img.url}")
+                img.screen-shot(src="/imgs/#{project.img.url}/#{project.img.contentType}")
               div.techs <strong>Technologies Used:</strong> #{project.techs}
             br
