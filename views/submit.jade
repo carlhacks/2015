@@ -1,9 +1,40 @@
 extends layout
 
 block content
+  .sub-logo
+    img#logo(src="img/carlhacks.png")
+  br
+  br
   .container
-    form(action='/upload', method='post', enctype='multipart/form-data')
-      p Image:
-        input(type='file', name='image')
-      p
-        input(type='submit', value='Upload')
+    form.form-horizontal(action='/upload', method='post',
+        enctype='multipart/form-data')
+      fieldset
+        .form-group
+          label.control-label.col-sm-4(for='image1') Image:
+          .col-sm-8
+            input.form-control(id='image1', type='file', name='image1')
+        .form-group
+          label.control-label.col-sm-4(for='tname') Team name:
+          .col-sm-8
+            input.form-control(id='tname', type='text', name='project[tname]')
+        .form-group
+          label.control-label.col-sm-4(for='tmems') Team members:
+          .col-sm-8
+            input.form-control(id='tmems', type='text', name='project[tmems]')
+        .form-group
+          label.control-label.col-sm-4(for='bracket') Bracket:
+          .col-sm-8
+            select.form-control(id='bracket',name='project[bracket]')
+              option(value='12') 12 Hour (9PM-9AM)
+              option(value='4') 4 Hour (9PM-1AM)
+        .form-group
+          label.control-label.col-sm-4(for='description') Brief description:
+          .col-sm-8
+            textarea.form-control(id='description', type='text', name='project[description]')
+        .form-group
+          label.control-label.col-sm-4(for='techs') Technologies used:
+          .col-sm-8
+            textarea.form-control(id='techs', type='text', name='project[techs]')
+      hr
+      .col-sm-8-offset-4
+        input.submit(type="submit", value="Submit", class="btn btn-primary")
