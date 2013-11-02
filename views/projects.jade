@@ -19,7 +19,7 @@ block content
               span= person
               br
           div.description= project.description
-            img.screen-shot(src="/imgs/#{project.img.url}/#{project.img.contentType}")
+            img.screen-shot(src="/imgs/#{project.img}")
           div Technologies Used:
             - each tech in project.techs
               span= tech

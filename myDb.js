@@ -12,10 +12,13 @@ var Project = mongoose.model('Project',
     {tname: String,
      tmems: String,
      bracket: String,
-     img: { url: String, contentType: String },
+     img: String,
      description: String,
      techs: String
     });
 
+var ProjImage = mongoose.model('ProjImage', { data: Buffer, contentType: String });
+
 module.exports.User = User;
 module.exports.Project = Project;
+module.exports.ProjImage = ProjImage;

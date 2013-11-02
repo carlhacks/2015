@@ -40,6 +40,7 @@ db.once('open', function callback () {
 var myDb = require('./myDb');
 var User = myDb.User;
 var Project = myDb.Project;
+var ProjImage = myDb.ProjImage;
 
 app.get('/', function(req, res){
   User.count({}, function( err, count){
@@ -85,20 +86,24 @@ app.post('/users/new', function (req, res) {
 
 // File upload
 app.post('/projects', function(req, res) {
-  var image = {url: req.files.image.path.replace(/\//g,"__"),
-               contentType: req.files.image.type.replace(/\//g,"__")};
-  var project = new Project({
-      tname: req.body.project.tname,
-      tmems: req.body.project.tmems,
-      techs: req.body.project.techs,
-      bracket: req.body.project.bracket,
-      description: req.body.project.description,
-      img: image
+  var projImage = new ProjImage({
+    data: fs.readFileSync(req.files.image.path),
+    contentType: req.files.image.type});
+  projImage.save(function (error, projImage) {
+    if(error){console.log("error!");return;}
+    var project = new Project({
+        tname: req.body.project.tname,
+        tmems: req.body.project.tmems,
+        techs: req.body.project.techs,
+        bracket: req.body.project.bracket,
+        description: req.body.project.description,
+        img: projImage.id
+    });
+    project.save(function (error, project) {
+      if(error) console.log("error!");
+    });
+    res.redirect('/');
   });
-  project.save(function (error, project) {
-    if(error) console.log("error!");
-  });
-  res.redirect('/');
 });
 
 app.get('/projects', function (req, res) {
@@ -117,15 +122,13 @@ app.get('/projects/all', function (req, res){
   });
 });
 
-app.get('/imgs/:imgPath/:contentType', function(req, res) {
-  var path = req.params.imgPath.replace(/__/g,"/");
-  if(fs.existsSync(path)){
-    imgData = fs.readFileSync(path);
-    res.contentType(req.params.contentType.replace(/__/g,"/"));
-    res.send(imgData);
-  }else{
-    res.send('', 404);
-  };
+app.get('/imgs/:imgIndex', function(req, res) {
+  var id = mongoose.Types.ObjectId(req.params.imgIndex);
+  ProjImage.findById(id, function(error, img){
+    if (error){ console.log("error!"); res.send('', 404); return; }
+    res.contentType(img.contentType);
+    res.send(img.data);
+  });
 });
 
 http.createServer(app).listen(app.get('port'), function(){
