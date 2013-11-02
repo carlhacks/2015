@@ -73,6 +73,12 @@ app.get('/submit', function (req, res) {
   });
 });
 
+app.get('/projects', function (req, res) {
+  res.render('projects.jade', {
+    title: 'Projects'
+  });
+});
+
 app.post('/users/new', function (req, res) {
   var user = new User({
       name: req.body.user.name,
