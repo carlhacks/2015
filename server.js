@@ -83,24 +83,10 @@ app.post('/users/new', function (req, res) {
 })
 
 
-
-app.get('/submit', function (req, res) {
-  res.render('submit.jade', {
-    title: 'Submit'
-  });
-});
-
 // File upload
-app.post('/upload', function(req, res) {
-  console.log('Received image upload: %s saved to %s',
-    req.files.image.name,
-    req.files.image.path);
-});
-
-// File upload
-app.post('/project', function(req, res) {
-  var image = {url: req.files.image.path.replace("/","__"),
-               contentType: req.files.image.type};
+app.post('/projects', function(req, res) {
+  var image = {url: req.files.image.path.replace(/\//g,"__"),
+               contentType: req.files.image.type.replace(/\//g,"__")};
   var project = new Project({
       tname: req.body.project.tname,
       tmems: req.body.project.tmems,
@@ -115,20 +101,27 @@ app.post('/project', function(req, res) {
   res.redirect('/');
 });
 
-app.get('/projects', function (req, res){
+app.get('/projects', function (req, res) {
+  res.render('submit.jade', {
+    title: 'Projects'
+  });
+});
+
+app.get('/projects/all', function (req, res){
   Project.find({}, function (error, projects){
     if (error) console.log("error!");
-    res.render('projectList.jade', {
+    res.render('projects.jade', {
       title: 'projects',
       projects: projects
     });
   });
 });
 
-app.get('/imgs/:imgPath', function(req, res) {
-  var path = '/var/tmp/' + req.params.imgPath.replace("__","/");
+app.get('/imgs/:imgPath/:contentType', function(req, res) {
+  var path = req.params.imgPath.replace(/__/g,"/");
   if(fs.existsSync(path)){
     imgData = fs.readFileSync(path);
+    res.contentType(req.params.contentType.replace(/__/g,"/"));
     res.send(imgData);
   }else{
     res.send('', 404);

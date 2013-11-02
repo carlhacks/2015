@@ -6,13 +6,13 @@ block content
   br
   br
   .container
-    form.form-horizontal(action='/upload', method='post',
+    form.form-horizontal(action='/projects', method='post',
         enctype='multipart/form-data')
       fieldset
         .form-group
-          label.control-label.col-sm-4(for='image1') Image:
+          label.control-label.col-sm-4(for='image') Image:
           .col-sm-8
-            input.form-control(id='image1', type='file', name='image1')
+            input.form-control(id='image', type='file', name='image')
         .form-group
           label.control-label.col-sm-4(for='tname') Team name:
           .col-sm-8
