@@ -102,13 +102,13 @@ app.post('/projects', function(req, res) {
     project.save(function (error, project) {
       if(error) console.log("error!");
     });
-    res.redirect('/');
+    res.redirect('/projects/all');
   });
 });
 
 app.get('/projects', function (req, res) {
   res.render('submit.jade', {
-    title: 'Projects'
+    title: 'Projects',
   });
 });
 
@@ -117,7 +117,8 @@ app.get('/projects/all', function (req, res){
     if (error) console.log("error!");
     res.render('projects.jade', {
       title: 'projects',
-      projects: projects
+      projects: projects,
+      additional_stylesheets: ['projects.css']
     });
   });
 });

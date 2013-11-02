@@ -1,0 +1,26 @@
+.sub-logo {
+  background-color: #fff;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.border {
+  border-top: none;
+}
+.project {
+  color: #444;
+}
+.project .team {
+  font-size: 2em;
+  font-weight: bold;
+}
+.project .description,
+.project img,
+.project .techs {
+  font-size: 1em;
+  padding-bottom: 1em;
+  color: #222;
+}
+.project img {
+  max-width: 100%;
+}
