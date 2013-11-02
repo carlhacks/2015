@@ -1,16 +1,16 @@
-estends layout
+extends layout
 
 h1= title
 
 block content
   .sub-logo
     a(href="/")
-      img#logo(src="img/carlhacks.png")
+      img#logo(src="../img/carlhacks.png")
   br
   br
-  #projects
-    - each project in projects
-      container
+  .container
+    #projects
+      - each project in projects
         div.project
           div Team #{project.tname}
           div.bracket #{project.bracket} hour bracket
@@ -19,7 +19,7 @@ block content
               span= person
               br
           div.description= project.description
-            img.screen-shot(src="img/#{project.img}")
+            img.screen-shot(src="img/#{project.img.url}/#{project.img.contentType}")
           div Technologies Used:
             - each tech in project.techs
               span= tech
