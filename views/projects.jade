@@ -3,25 +3,21 @@ extends layout
 h1= title
 
 block content
-  .sub-logo
+  .sub-logo.border
     a(href="/")
       img#logo(src="../img/carlhacks.png")
-  br
-  br
-  .container
-    #projects
-      - each project in projects
-        div.project
-          div Team #{project.tname}
-          div.bracket #{project.bracket} hour bracket
-          div Members:
-            - each person in project.tmems
-              span= person
-              br
-          div.description= project.description
-            img.screen-shot(src="/imgs/#{project.img.url}/#{project.img.contentType}")
-          div Technologies Used:
-            - each tech in project.techs
-              span= tech
-              br
-        hr
+  - each project in projects
+    .border
+      .container
+        .col-xs-12.col-sm-8.col-sm-offset-2
+            br
+            div.project
+              div.team #{project.tname}
+              div.members
+                span= project.tmems
+                span.bracket  (#{project.bracket}-hour bracket)
+              hr
+              div.description= project.description
+              img.screen-shot(src="/imgs/#{project.img.url}/#{project.img.contentType}")
+              div.techs <strong>Technologies Used:</strong> #{project.techs}
+            br
