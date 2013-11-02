@@ -67,12 +67,6 @@ app.get('/users', function (req, res){
   }
 });
 
-app.get('/submit', function (req, res) {
-  res.render('submit.jade', {
-    title: 'Submit'
-  });
-});
-
 app.post('/users/new', function (req, res) {
   var user = new User({
       name: req.body.user.name,
@@ -89,6 +83,13 @@ app.post('/users/new', function (req, res) {
 })
 
 
+
+app.get('/submit', function (req, res) {
+  res.render('submit.jade', {
+    title: 'Submit'
+  });
+});
+
 // File upload
 app.post('/upload', function(req, res) {
   console.log('Received image upload: %s saved to %s',
@@ -96,8 +97,36 @@ app.post('/upload', function(req, res) {
     req.files.image.path);
 });
 
+// File upload
+app.post('/project', function(req, res) {
+  var image = {url: req.files.image.path.replace("/","__"),
+               contentType: req.files.image.type};
+  var project = new Project({
+      tname: req.body.project.tname,
+      tmems: req.body.project.tmems,
+      techs: req.body.project.techs,
+      bracket: req.body.project.bracket,
+      description: req.body.project.description,
+      img: image
+  });
+  project.save(function (error, project) {
+    if(error) console.log("error!");
+  });
+  res.redirect('/');
+});
+
+app.get('/projects', function (req, res){
+  Project.find({}, function (error, projects){
+    if (error) console.log("error!");
+    res.render('projectList.jade', {
+      title: 'projects',
+      projects: projects
+    });
+  });
+});
+
 app.get('/imgs/:imgPath', function(req, res) {
-  var path = '/var/tmp/' + req.params.imgPath;
+  var path = '/var/tmp/' + req.params.imgPath.replace("__","/");
   if(fs.existsSync(path)){
     imgData = fs.readFileSync(path);
     res.send(imgData);

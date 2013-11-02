@@ -10,11 +10,11 @@ var User = mongoose.model('User',
 
 var Project = mongoose.model('Project',
     {tname: String,
-     tmems: [String],
+     tmems: String,
      bracket: String,
-     img: String,
+     img: { url: String, contentType: String },
      description: String,
-     techs: [String]
+     techs: String
     });
 
 module.exports.User = User;
