@@ -69,6 +69,7 @@ app.get('/users', function (req, res){
 });
 
 app.post('/users/new', function (req, res) {
+  return;
   var user = new User({
       name: req.body.user.name,
       email: req.body.user.email,
@@ -86,6 +87,7 @@ app.post('/users/new', function (req, res) {
 
 // File upload
 app.post('/projects', function(req, res) {
+  return;
   var projImage = new ProjImage({
     data: fs.readFileSync(req.files.image.path),
     contentType: req.files.image.type});
@@ -106,13 +108,14 @@ app.post('/projects', function(req, res) {
   });
 });
 
-app.get('/projects', function (req, res) {
-  res.render('submit.jade', {
-    title: 'Projects',
-  });
-});
+// app.get('/projects', function (req, res) {
+//   res.render('submit.jade', {
+//     title: 'Projects',
+//   });
+// });
 
-app.get('/projects/all', function (req, res){
+// app.get('/projects/all', function (req, res){
+app.get('/projects', function (req, res) {
   Project.find({}, function (error, projects){
     if (error) console.log("error!");
     res.render('projects.jade', {
