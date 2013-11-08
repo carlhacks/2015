@@ -7,9 +7,11 @@ html
     link(rel='stylesheet', href='/stylesheets/main.css')
     if additional_stylesheets
         - each stylesheet in additional_stylesheets
-            link(rel='stylesheet', href='/stylesheets/' + stylesheet)
+            link(rel='stylesheet', href='/stylesheets/'+stylesheet)
     script(src='/js/jquery.min.js')
     script(src='/js/bootstrap.min.js')
-    script(src='/js/main.js')
+    if additional_js
+        - each js in additional_js
+            script(src='/js/'+js)
   body
     block content

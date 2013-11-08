@@ -6,6 +6,21 @@ block content
   .sub-logo.border
     a(href="/")
       img#logo(src="../img/carlhacks.png")
+  
+  //- Photo gallery
+  //- .border
+  //-   .container
+  //-     .mygallery
+  //-       .tn3.album
+  //-         h4 Gallery
+  //-         .tn3.description Photos from CarlHacks Fall 2013
+  //-         .tn3.thumb gallery/thumb.jpg
+  //-         ol
+  //-           li
+  //-             a(href='gallery/1.jpg')
+  //-               img(src='gallery/thumb.jpg')
+  //- 
+  
   - rev_projects = projects.reverse()
   - each project in rev_projects
     .border

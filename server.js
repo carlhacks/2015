@@ -44,7 +44,11 @@ var ProjImage = myDb.ProjImage;
 
 app.get('/', function(req, res){
   User.count({}, function( err, count){
-    res.render('index', { title: 'CarlHacks', count: count });
+    res.render('index', {
+      title: 'CarlHacks',
+      count: count,
+      additional_js: 'index.js'
+    });
   })
 });
 
@@ -121,7 +125,8 @@ app.get('/projects', function (req, res) {
     res.render('projects.jade', {
       title: 'projects',
       projects: projects,
-      additional_stylesheets: ['projects.css']
+      additional_stylesheets: ['projects.css'] //, 'tn3.css'],
+      additional_js: ['projects.js'] //, 'tn3.js']
     });
   });
 });
