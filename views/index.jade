@@ -1,6 +1,9 @@
 extends layout
 
 block content
+  .border
+    .banner
+      h2 The competition is over! See the projects <a href="/projects">here</a>.
   .logo.border
     img#logo(src="img/carlhacks.png")
   .blurry-wrap
@@ -19,7 +22,6 @@ block content
       .header
         //- h1 Registration closed
         h1 Reserve your place
-        br
         //- p.lead The competition is over, but see what everyone made!
         //-   a(href="/projects") Here are all the projects!
         p.lead
