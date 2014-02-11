@@ -6,7 +6,9 @@ var User = mongoose.model('User',
      bracket: String,
      needTeam: Boolean,
      teamName: String,
-     teamMates: String});
+     teamMates: String,
+     hackathon: String
+    });
 
 var Project = mongoose.model('Project',
     {tname: String,
@@ -14,7 +16,8 @@ var Project = mongoose.model('Project',
      bracket: String,
      img: String,
      description: String,
-     techs: String
+     techs: String,
+     hackathon: String
     });
 
 var ProjImage = mongoose.model('ProjImage', { data: Buffer, contentType: String });

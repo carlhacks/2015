@@ -43,20 +43,20 @@ var Project = myDb.Project;
 var ProjImage = myDb.ProjImage;
 
 app.get('/', function(req, res){
-  User.count({}, function( err, count){
+  User.count({hackathon: "W2014"}, function( err, count){
     res.render('index', { title: 'CarlHacks', count: count });
   })
 });
 
 app.get('/count', function(req, res){
-  User.count({}, function( err, count){
+  User.count({hackathon: "W2014"}, function( err, count){
     res.send({ count: count });
   })
 });
 
 app.get('/users', function (req, res){
   if (req.url==='/users?password=carlhacks9000'){
-    User.find({}, function (error, users){
+    User.find({hackathon: "W2014"}, function (error, users){
       if (error) console.log("error!");
       res.render('usersList.jade', {
         title: 'Users',
@@ -69,17 +69,17 @@ app.get('/users', function (req, res){
 });
 
 app.post('/users/new', function (req, res) {
-  return;
   var user = new User({
       name: req.body.user.name,
       email: req.body.user.email,
       bracket: req.body.user.bracket,
       needTeam: req.body.user.need_team, 
       teamName: req.body.user.team_name, 
-      teamMates: req.body.user.team_members
+      teamMates: req.body.user.team_members,
+      hackathon: "W2014" 
   });
   user.save(function (error, user) {
-    if(error) console.log("error!");
+    if(error) console.log("error!");return;
   });
   res.redirect('/');
 })
@@ -87,7 +87,6 @@ app.post('/users/new', function (req, res) {
 
 // File upload
 app.post('/projects', function(req, res) {
-  return;
   var projImage = new ProjImage({
     data: fs.readFileSync(req.files.image.path),
     contentType: req.files.image.type});
@@ -99,7 +98,8 @@ app.post('/projects', function(req, res) {
         techs: req.body.project.techs,
         bracket: req.body.project.bracket,
         description: req.body.project.description,
-        img: projImage.id
+        img: projImage.id,
+        hackathon: "W2014"
     });
     project.save(function (error, project) {
       if(error) console.log("error!");
@@ -116,7 +116,7 @@ app.post('/projects', function(req, res) {
 
 // app.get('/projects/all', function (req, res){
 app.get('/projects', function (req, res) {
-  Project.find({}, function (error, projects){
+  Project.find({hackathon: "W2014"}, function (error, projects){
     if (error) console.log("error!");
     res.render('projects.jade', {
       title: 'projects',
