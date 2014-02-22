@@ -100,6 +100,7 @@ app.post('/projects', function(req, res) {
         tname: req.body.project.tname,
         tmems: req.body.project.tmems,
         techs: req.body.project.techs,
+        link: req.body.project.linkk,
         bracket: req.body.project.bracket,
         description: req.body.project.description,
         img: projImage.id,
@@ -112,14 +113,14 @@ app.post('/projects', function(req, res) {
   });
 });
 
-// app.get('/projects', function (req, res) {
-//   res.render('submit.jade', {
-//     title: 'Projects',
-//   });
-// });
-
-// app.get('/projects/all', function (req, res){
 app.get('/projects', function (req, res) {
+  res.render('submit.jade', {
+    title: 'Projects',
+  });
+});
+
+// app.get('/projects', function (req, res) {
+app.get('/projects/all', function (req, res){
   Project.find({hackathon: "W2014"}, function (error, projects){
     if (error) console.log("error!");
     res.render('projects.jade', {

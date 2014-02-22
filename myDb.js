@@ -17,6 +17,7 @@ var Project = mongoose.model('Project',
      img: String,
      description: String,
      techs: String,
+     link: String,
      hackathon: String
     });
 
