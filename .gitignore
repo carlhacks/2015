@@ -3,6 +3,8 @@ carlhacks_rsa.pub
 carlhacks_publish
 
 .DS_Store
+._*
+~*
 
 lib-cov
 *.seed
@@ -24,3 +26,6 @@ node_modules
 
 images
 data
+db
+
+Thumbs.*
