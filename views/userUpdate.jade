@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  .blurry-wrap
+    .blurry.bg.img-1(data-speed="0.0")
+      .container
+  .border
+    br
+    .container
+      form.form-horizontal(action="/users/save", method="post")
+        include ./form.jade
+        +userform(user)
+        hr
+      br
+  .blurry-wrap
+    .blurry.bg.img-2(data-speed="0.0")
+      .container
+  .footer.bg(data-speed="0")
+    p
+      span &copy; Carleton Computing Society 2014

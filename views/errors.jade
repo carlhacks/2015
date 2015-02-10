@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+  head
+    title
+      | Error:
+      = ' ' + status
+    link(rel='icon', type='image/png', href='/img/favicon.png')
+  body
+    p
+      | Oh ja its a
+      = ' ' + status
+      | ...
+      br
+      = ' ' + msg
