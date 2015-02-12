@@ -21,7 +21,7 @@ mixin userform(user)
     .form-group
       label.control-label.col-sm-4(for='user-urls') Online Profiles (GitHub, LinkedIn, etc.)
       .col-sm-8
-        textarea.form-control(id='user-urls',name='user[urls]', value=(('urls' in user) ? user.classYear : undefined))
+        textarea.form-control(id='user-urls',name='user[urls]')=('urls' in user) ? user.urls : undefined
     .form-group
       label.control-label.col-sm-4(for='user-shirt-size') Shirt Size*
       .col-sm-8

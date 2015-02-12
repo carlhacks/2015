@@ -16,9 +16,11 @@ var USER_KEYS = {
 var mongoose = require('mongoose');
 
 var saveUser = function (model, data, callback) {
+  // map check boxes onto booleans
   for (key in {idsWoman: 1, grant: 1, agreeMail: 1, noPhoto: 1, agreeCode: 1}) {
     data[key] = data.hasOwnProperty(key)
   };
+  // turn dietary check boxes into list.
   var dietary = []
   for (key in data.dietary) {
     dietary.push(key);
@@ -73,7 +75,6 @@ module.exports.setup = function (app, User) {
       if (error || !user) {
         return res.redirect('/');
       }
-      console.log(user);
       res.render('userUpdate.jade', {
         title: 'Update Your Info',
         user: user,
