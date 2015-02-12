@@ -3,6 +3,7 @@ var USER_KEYS = {
   email: 1,
   school: 1,
   classYear: 1,
+  urls: 1,
   shirtSize: 1,
   dietary: 1,
   idsWoman: 1,
