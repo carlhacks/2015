@@ -8,13 +8,14 @@ var USER_KEYS = {
   idsWoman: 1,
   grant: 1,
   agreeMail: 1,
+  noPhoto: 1,
   agreeCode: 1
 };
 
 var mongoose = require('mongoose');
 
 var saveUser = function (model, data, callback) {
-  for (key in {idsWoman: 1, grant: 1, agreeMail: 1, agreeCode: 1}) {
+  for (key in {idsWoman: 1, grant: 1, agreeMail: 1, noPhoto: 1, agreeCode: 1}) {
     data[key] = data.hasOwnProperty(key)
   };
   var dietary = []

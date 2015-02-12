@@ -65,6 +65,11 @@ mixin userform(user)
         .checkbox
           input(id='user-agree-mail', type="checkbox", name="user[agreeMail]", checked=(('agreeMail' in user) && user.agreeMail ? "checked" : undefined))
     .form-group
+      label.control-label.col-sm-4(for='user-no-photo') Opt out of photos
+      .col-sm-8
+        .checkbox
+          input(id='user-no-photo', type="checkbox", name="user[noPhoto]", checked=(('noPhoto' in user) && user.noPhoto ? "checked" : undefined))
+    .form-group
       label.control-label.col-sm-4(for='user-agree-code') Agree to code of conduct
       .col-sm-8
         .checkbox

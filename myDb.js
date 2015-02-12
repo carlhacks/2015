@@ -10,6 +10,7 @@ var User = mongoose.model('User',
      idsWoman: Boolean,
      grant: Boolean,
      agreeMail: Boolean,
+     noPhoto: Boolean,
      agreeCode: Boolean
     }
 );
