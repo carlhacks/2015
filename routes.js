@@ -12,6 +12,10 @@ module.exports.setup = function (app, User) {
     })
   });
 
+  app.get('/favicon.ico', function (req, res) {
+    res.sendfile('img/favicon.png', {root: './public'});
+  });
+
   app.get('/count', function(req, res){
     User.count({}, function( err, count){
       res.send({ count: count });

@@ -1,77 +1,47 @@
 extends layout
 
 block content
-  //- .border
-  //-   .banner
-  //-     h2 The competition is over! See the projects <a href="/projects">here</a>.
-  .logo.border
-    img#logo(src="img/carlhacks.png")
-  .blurry-wrap
-    .blurry1.bg.img-1(data-speed="2.5")
-      .container
-        .hero
-          h2
-            | The Carleton College hackathon.
-          h2
-            | One day to build
-            br
-            | something awesome.
-          h3 Feb. 22, 9AM – 9PM in CMC 308
-  .border
-    .container
-      .header
-        //- h1 Registration closed
-        h1 Reserve your place
-        //- p.lead The competition is over, but see what everyone made!
-        //-   a(href="/projects") Here are all the projects!
-        p.lead
-          | What could you build in 12 hours?
-          br
-          | Bring your ideas, passion, and laptop (optional) to the CMC
-          | next Saturday and join us for coding, pizza, and prizes.
-    .container
-      form.form-horizontal(action="/users/save", method="post")
-        include ./form.jade
-        +userform(user || {})
-        hr
-      .note
-        span#hacker-count #{count}
-        | &nbsp;hackers have already registered.
-      br
-      br
-  .blurry-wrap
-    .blurry.bg.img-2(data-speed="0.35")
-      .container
-  .border
-    .container
-      .header
-        h1 What's a hackathon?
-        br
-        p.lead.
-          Hackathons are fast-paced events in which small teams work to
-          implement an idea.
-          The projects are usually software-oriented.
-          Hackathons are often organized by tech companies and by universities, and
-          typically involve large quanities of junk food and caffeinated beverages.
-          The largest college hackathons attract as many as a thousand students and
-          give out thousands of dollars in prizes.
-        br
-        h1 CarlHacks rules
-        br
-        .ul.rules
-          li.lead Teams can have 1-5 members.
-          li.lead All coding must finish at 9PM.
-          li.lead Teams will present their projects at 9:30PM.
-          li.lead.
-            Projects will be judged on the criteria of usefulness,
-            innovation, and presentation. Presentations on Saturday will be
-            the sole basis for the judging.
-          li.lead.
-            You can start planning now but all code relating to your project
-            must be written at the event, with the exception of any publicly available
-            resources. You are <strong>strongly encouraged</strong> to take advantage
-            of open source libraries and technologies.
-        br
-  .footer.bg(data-speed="0")
-    p
-      span &copy; Carleton Computing Society 2014
+  header
+    object.logo(data='/img/logo.svg')
+      img(src='/img/logo.png')
+    nav
+      span.date April 17-19
+      span.location Northfield, MN
+      button.register Sign Up
+  main
+    section.card.right.mission
+      h1 Our Mission
+      p
+        | Join us for 36 hours of building, learning, and connecting.
+        | CarlHacks is bringing 400 undergraduate students together to spend
+        | a weekend creating projects. Our team is excited to bring a huge
+        | hackathon to a small midwest liberal arts college, and we are
+        | working to bring more inclusivity and a liberal arts perspective
+        | to the world of hackathons!
+      object.wind(data='/img/wind.svg')
+        img(src='/img/wind.png')
+    section.card.left.info
+      h1 General Information
+      p
+        | TEXT text TEXT text
+      object.circuit(data='/img/circuit.svg')
+        img(src='/img/circuit.png')
+    section.card.right.schedule
+      h1 Schedule
+      p
+        | TEXT text TEXT text
+      object.knight(data='/img/knight.svg')
+        img(src='/img/knight.png')
+    section.card.left.transport
+      h1 Transportation
+      p
+        | TEXT text TEXT text
+      object.terminal(data='/img/terminal.svg')
+        img(src='/img/terminal.png')
+    section.signup
+      button.register Sign Up
+  footer
+    object.bottom-datao(src='/img/bottom-logo.svg')
+      img(src='/img/bottom-logo.png')
+    div.sponsors
+      p sponsors go here.
