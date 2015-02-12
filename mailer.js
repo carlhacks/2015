@@ -4,7 +4,7 @@ var Mailgun = require('mailgun').Mailgun
 
 var sendText = function (recipients, subject, message, callback) {
   mg.sendText(
-    'noreply@mg.carlhacks.io',
+    'CarlHacks <noreply@mg.carlhacks.io>',
     recipients,
     subject,
     message,
@@ -15,7 +15,7 @@ var sendText = function (recipients, subject, message, callback) {
 
 var sendRaw = function (recipients, subject, message, callback) {
   mg.sendText(
-    'noreply@mg.carlhacks.io',
+    'CarlHacks <noreply@mg.carlhacks.io>',
     recipients,
     subject + '\r\n\r\n' + message,
     {'X-Campaign-Id': 'carlhacks2015'},

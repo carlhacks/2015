@@ -1,48 +1,5 @@
-var USER_KEYS = {
-  name: 1,
-  email: 1,
-  school: 1,
-  classYear: 1,
-  urls: 1,
-  shirtSize: 1,
-  dietary: 1,
-  idsWoman: 1,
-  grant: 1,
-  agreeMail: 1,
-  noPhoto: 1,
-  agreeCode: 1
-};
-
-var mongoose = require('mongoose');
-
-var saveUser = function (model, data, callback) {
-  // map check boxes onto booleans
-  for (key in {idsWoman: 1, grant: 1, agreeMail: 1, noPhoto: 1, agreeCode: 1}) {
-    data[key] = data.hasOwnProperty(key)
-  };
-  // turn dietary check boxes into list.
-  var dietary = []
-  for (key in data.dietary) {
-    dietary.push(key);
-  };
-  data.dietary = dietary;
-  var handle_user = function (error, user) {
-    for (key in USER_KEYS) {
-      if (data.hasOwnProperty(key)) {
-        user[key] = data[key];
-      }
-    }
-    user.save(function (error) {
-      callback(error);
-    });
-  };
-  if (data.hasOwnProperty('id')) {
-    model.findOne({_id: mongoose.Types.ObjectId(data.id)}, handle_user);
-  } else {
-    handle_user(false, new model());
-  };
-}
-
+var mongoose = require('mongoose')
+  , saveUser = require('./handleUser').saveUser;
 
 module.exports.setup = function (app, User) {
   app.get('/', function(req, res){
@@ -91,7 +48,7 @@ module.exports.setup = function (app, User) {
     };
     saveUser(User, req.body.user, function (error){
       if (error) {
-        return res.send({status: 'error'});
+        return res.status(400).send({status: 'error'});
       };
       return res.send({status: 'ok'});
     });
