@@ -1,8 +1,8 @@
 {
   "name": "website",
-	"description": "the ccs carlhacks website",
+  "description": "the ccs carlhacks website",
   "version": "0.0.1",
-	"private": true,
+  "private": true,
   "scripts": {
     "start": "node server.js"
   },
