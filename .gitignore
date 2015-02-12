@@ -29,3 +29,5 @@ data
 db
 
 Thumbs.*
+
+api_keys.js

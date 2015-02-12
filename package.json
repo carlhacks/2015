@@ -9,6 +9,7 @@
   "dependencies": {
     "express": "3.x",
     "mongoose": "3.6.x",
+    "mailgun": "^0.5.0",
     "jade": "*",
     "stylus": "*",
     "jquery": "*",
