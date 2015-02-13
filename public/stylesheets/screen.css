@@ -101,10 +101,12 @@ body {
 
 .card {
   background-color: #F3F3F7;
-  max-width: 33em;
+  max-width: 35em;
   padding: 2em;
   margin: 0 auto;
   margin-top: 2em;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .card h1 {
@@ -115,12 +117,74 @@ body {
   font-weight: 600;
 }
 
+<<<<<<< HEAD
 form.user {
   background-color: #F3F3F7;
   max-width: 33em;
   padding: 2em;
   margin: 2em auto;
   border: 0 solid transparent;
+=======
+.card p {
+  line-height: 1.6;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card.right {
+  padding-left: 100px;
+}
+
+.card.left {
+  padding-right: 100px;
+}
+
+.card:after {
+  content:'';
+  display: block;
+  position: absolute;
+}
+
+.card.mission:after {
+  left: -80px;
+  bottom: 0;
+  background: url(/img/windmill.png) bottom right/contain no-repeat;
+  height: 130%;
+  width: 165px;
+}
+
+.card.info:after {
+  right: 0;
+  top: -20px;
+  background: url(/img/circuit.png) top right/contain no-repeat;
+  height: 130%;
+  width: 80px;
+}
+
+.card.schedule:after {
+  left: -40px;
+  top: 0;
+  bottom: 0;
+  background: url(/img/terminal.png) center right/contain no-repeat;
+  width: 111px;
+}
+
+.card.transport:after {
+  right: -40px;
+  top: 0;
+  bottom: 0;
+  background: url(/img/knight.png) center left/contain no-repeat;
+  width: 83px;
+}
+
+p.action {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 24px;
+>>>>>>> Add icons to cards
 }
 
 form.user fieldset {
