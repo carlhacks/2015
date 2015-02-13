@@ -95,3 +95,11 @@ body {
   margin: 0 auto;
   margin-top: 2em;
 }
+
+.card h1 {
+  margin: 0;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  color: #1F2165;
+  font-weight: 600;
+}
