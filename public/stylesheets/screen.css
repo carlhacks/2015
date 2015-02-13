@@ -127,7 +127,7 @@ a:hover {
 
 .card {
   background-color: #F3F3F7;
-  max-width: 35em;
+  max-width: 38em;
   padding: 2em;
   margin: 0 auto;
   margin-top: 2em;
@@ -142,10 +142,9 @@ a:hover {
 
 .card h1 {
   margin: 0;
-  font-size: 1.5em;
-  text-transform: uppercase;
+  font-size: 1.4em;
   color: #1F2165;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .card p {
@@ -161,7 +160,6 @@ a:hover {
 }
 
 .card.left {
-  padding-right: 100px;
 }
 
 .card:after {
