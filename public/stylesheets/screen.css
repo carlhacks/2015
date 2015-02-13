@@ -5,6 +5,15 @@ body {
   background-color: #E3E3ED;
 }
 
+a, a:visited, a:hover {
+  text-decoration: none;
+  color: #4D6CED;
+  cursor: pointer;
+}
+a:hover {
+  color: #2E3192;
+}
+
 .hero {
   display: -webkit-flex;
   display: flex;
@@ -127,6 +136,10 @@ body {
   border-radius: 4px;
 }
 
+.card.hidden {
+  display: none;
+}
+
 .card h1 {
   margin: 0;
   font-size: 1.5em;
@@ -205,6 +218,10 @@ form.user {
   border: 0 solid transparent;
 }
 
+form.user.hidden {
+  display: none;
+}
+
 form.user fieldset {
   border: 0 solid transparent;
   margin: 0;
@@ -264,15 +281,40 @@ form.user .question .multi-check input {
 form.user .question label .desc{
   font-style: italic;
   display: block;
-  max-width: 14em;
+  max-width: 12em;
   margin-top: .25em;
   margin-left: auto;
   text-align: left;
   font-size: .875em;
 }
 
-form.user .submit {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+form.user .question input[type=text],
+form.user .question input[type=tel],
+form.user .question input[type=number],
+form.user .question textarea {
+  border-radius: .25em;
+  border: solid 1px #E3E3ED;
+  resize: none;
+  width: 12em;
+}
+
+form.user .register {
+  display: inline-block;
+  background-color: #3D3D85;
+}
+form.user .register:hover {
+  background-color: #fff;
+}
+
+.go-home-wrapper {
+  width: 100%;
+  padding: 2em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+a.go-home {
+  display: inline;
+  background-color: #3D3D85;
+  color: #fff;
 }

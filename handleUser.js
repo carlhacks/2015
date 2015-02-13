@@ -16,7 +16,7 @@ var USER_KEYS = {
   agree: 1
 };
 
-var saveUser = function (model, data, callback) {
+var saveUser = function (model, data, host, callback) {
   // map check boxes onto booleans
   for (key in {idsWoman: 1, grant: 1, noPhoto: 1, agree: 1}) {
     data[key] = data.hasOwnProperty(key)
@@ -35,6 +35,7 @@ var saveUser = function (model, data, callback) {
 
   data.dietary = dietary;
   var handle_user = function (error, user, isNew) {
+    var old_email = user.email;
     for (key in USER_KEYS) {
       if (data.hasOwnProperty(key)) {
         user[key] = data[key];
@@ -44,11 +45,13 @@ var saveUser = function (model, data, callback) {
       if (error) return callback(error);
       var name = saved_user.name
         , email = saved_user.email
-        , _id = saved_user._id;
-      link = 'http://carlhacks.io/update?email=' + email + '&id=' + _id
+        , _id = saved_user._id
+        , link = 'http://' + host + '/update?email=' + email + '&id=' + _id;
+
       email = name + '<' + email + '>';
       var verbs = isNew ? ['creating an', 'update your account'] :
                           ['make more changes', 'updating your'];
+      if (old_email === saved_user.email) return callback(false, link);
       return mailer.sendText(
         email,
         'Your CarlHacks Account',
@@ -57,7 +60,7 @@ var saveUser = function (model, data, callback) {
         verbs[1] + ' here:\n\n' + link + '\n\nFor questions or ' +
         'assistance, contact info@carlhacks.io and we\'ll get back to you ' +
         'as fast as possible.\n\nThanks!\n-The CarlHacks Team',
-        callback
+        function (error) { callback(error, link); }
       );
     });
   };

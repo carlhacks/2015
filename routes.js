@@ -28,7 +28,8 @@ module.exports.setup = function (app, User) {
         title: 'CarlHacks - Register',
         count: count,
         user: {},
-        actionSent: 'Register for CarlHacks'
+        actionSent: 'Register for CarlHacks',
+        additional_js: ['userForm.js']
       });
     })
   });
@@ -50,7 +51,8 @@ module.exports.setup = function (app, User) {
       res.render('form', {
         title: 'CarlHacks - Update',
         user: user,
-        actionSent: 'Update your account'
+        actionSent: 'Update your account',
+        additional_js: ['userForm.js']
       });
     });
   });
@@ -62,11 +64,11 @@ module.exports.setup = function (app, User) {
         msg: 'Bad input.'
       });
     };
-    saveUser(User, req.body.user, function (error){
+    saveUser(User, req.body.user, req.headers.host, function (error, link){
       if (error) {
         return res.status(400).send({status: 'error'});
       };
-      return res.send({status: 'ok'});
+      return res.send({status: 'ok', link: link});
     });
   })
 };

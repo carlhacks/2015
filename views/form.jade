@@ -101,5 +101,15 @@ block content
           span.desc
             | Do do this.
         .single-check
-          input(id='user-agree', type="checkbox", name="user[agree]", checked=(('agree' in user) && user.agreeCode ? "checked" : undefined))
-      input.submit(type="submit", value="Submit", class="btn btn-primary")
+          input(id='user-agree', type="checkbox", name="user[agree]", checked=(('agree' in user) && user.agree ? "checked" : undefined))
+      input.register(type="submit", value="Submit", class="btn btn-primary")
+  section.card.success.hidden
+    h1 Success
+    p
+      | Thanks for submitting! If you haven't recieved and email yet,
+      | expect one soon. In the mean time, feel free to
+      = ' '
+      a.update-link(href='#') update your account here
+      | . We will let you know as soon as our guest list is final!
+  .go-home-wrapper
+    a.register.go-home(href='/') Home
