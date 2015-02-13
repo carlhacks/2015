@@ -316,3 +316,35 @@ a.go-home {
   background-color: #3D3D85;
   color: #fff;
 }
+
+footer {
+  margin: 10em 0 0 0;
+}
+
+footer h1 {
+  background-color: #1F2165;
+  padding: 5rem 0;
+  width: 100%;
+  font-size: 3em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  vertical-align: middle;
+  margin: 0;
+}
+
+footer h1 .bottom-logo,
+footer h1 .bottom-logo img{
+  height: 2em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .25em;
+}
+
+footer .sponsors {
+  margin: 0;
+  background-color: #fff;
+  text-align: center;
+  padding: 2rem 0 6rem 0;
+  box-sizing: border-box;
+}
