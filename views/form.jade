@@ -1,31 +1,37 @@
-mixin userform(user)
-  fieldset
-    if '_id' in user
-      input(type='hidden', value=user._id, name='user[id]')
-    .form-group
-      label.control-label.col-sm-4(for='user-name') Full name*
-      .col-sm-8
-        input.form-control(id='user-name', type='text',name='user[name]',required, value=(('name' in user) ? user.name : ''))
-    .form-group
-      label.control-label.col-sm-4(for='user-email') Email*
-      .col-sm-8
-        input.form-control(id='user-email', type='text',name='user[email]',required, value=(('email' in user) ? user.email : ''))
-    .form-group
-      label.control-label.col-sm-4(for='user-school') School*
-      .col-sm-8
-        input.form-control(id='user-school', type='text',name='user[school]',required, value=(('school' in user) ? user.school : 'Carleton College'))
-    .form-group
-      label.control-label.col-sm-4(for='user-year') Class Year*
-      .col-sm-8
-        input.form-control(id='user-year', type='number',name='user[classYear]',required, value=(('classYear' in user) ? user.classYear : 2015))
-    .form-group
-      label.control-label.col-sm-4(for='user-urls') Online Profiles (GitHub, LinkedIn, etc.)
-      .col-sm-8
-        textarea.form-control(id='user-urls',name='user[urls]')=('urls' in user) ? user.urls : undefined
-    .form-group
-      label.control-label.col-sm-4(for='user-shirt-size') Shirt Size*
-      .col-sm-8
-        select.form-control(id='user-shirt-size',name='user[shirtSize]')
+extends layout
+
+block hero
+  h1
+    span.logo-word Carl
+    span.logo-word Hacks
+  span.subheader
+    span.subheader-fact April 17-19
+    span.subheader-fact Northfield, MN
+
+block content
+  p.action=actionSent
+  form(action="/users/save", method="post")
+    fieldset.user
+      if '_id' in user
+        input(type='hidden', value=user._id, name='user[id]')
+      .question
+        label.required(for='user-name') Full Name
+        input.text(id='user-name', type='text',name='user[name]',required, value=(('name' in user) ? user.name : ''))
+      .question
+        label.required(for='user-email') Email
+        input.text(id='user-email', type='text',name='user[email]',required, value=(('email' in user) ? user.email : ''))
+      .question
+        label.required(for='user-school') School
+        input.text(id='user-school', type='text',name='user[school]',required, value=(('school' in user) ? user.school : 'Carleton College'))
+      .question
+        label.required(for='user-year') Class Year
+        input.text(id='user-year', type='number',name='user[classYear]',required, value=(('classYear' in user) ? user.classYear : 2015))
+      .question
+        label(for='user-urls') Online Profiles (GitHub, LinkedIn, etc.)
+        textarea.text(id='user-urls',name='user[urls]')=('urls' in user) ? user.urls : undefined
+      .question
+        label.required(for='user-shirt-size') Shirt Size
+        select(id='user-shirt-size',name='user[shirtSize]')
           option(value='XS', selected=(('shirtSize' in user) && user.shirtSize == 'XS' ? 'selected' : undefined))
             | X Small
           option(value='S', selected=(('shirtSize' in user) && user.shirtSize == 'S' ? 'selected' : undefined))
@@ -38,10 +44,9 @@ mixin userform(user)
             | X Large
           option(value='XXL', selected=(('shirtSize' in user) && user.shirtSize == 'XXL' ? 'selected' : undefined))
             | XX Large
-    .form-group
-      label.control-label.col-sm-4 Dietary Restrictions
-      .col-sm-8
-        .checkbox
+      .question
+        label Dietary Restrictions
+        .multi-check
           input(type="checkbox", name="user[dietary][vegetarian]", checked=(('dietary' in user) && (user.dietary.indexOf('vegetarian') >= 0) ? "checked" : undefined))
           | Vegetarian
           br
@@ -53,30 +58,29 @@ mixin userform(user)
           br
           input(type="checkbox", name="user[dietary][kosher]",  checked=(('dietary' in user) && (user.dietary.indexOf('kosher') >= 0) ? "checked" : undefined))
           | Kosher
-    .form-group
-      label.control-label.col-sm-4(for='user-ids-woman') Identify as a woman
-      .col-sm-8
-        .checkbox
+      .question
+        label(for='user-ids-woman') Identify as a Woman and Request Pre-registration
+          span.desc
+            | For those that identify as a woman and wish to be considered for
+            | pre-registration, please check this box.
+        .single-check
           input(id='user-ids-woman', type="checkbox", name="user[idsWoman]", checked=(('idsWoman' in user) && user.idsWoman ? "checked" : undefined))
-    .form-group
-      label.control-label.col-sm-4(for='user-need-grant') Need a travel grant
-      .col-sm-8
-        .checkbox
+      .question
+        label(for='user-need-grant') Need a Travel Grant
+          span.desc
+            | We can't guarantee that everyone will get grants, but...
+        .single-check
           input(id='user-need-grant', type="checkbox", name="user[grant]", checked=(('grant' in user) && user.grant ? "checked" : undefined))
-    .form-group
-      label.control-label.col-sm-4(for='user-agree-mail') Agree to recieve mail
-      .col-sm-8
-        .checkbox
-          input(id='user-agree-mail', type="checkbox", name="user[agreeMail]", checked=(('agreeMail' in user) && user.agreeMail ? "checked" : undefined))
-    .form-group
-      label.control-label.col-sm-4(for='user-no-photo') Opt out of photos
-      .col-sm-8
-        .checkbox
+      .question
+        label(for='user-no-photo') Opt out of Photos
+          span.desc
+            | Do not do this.
+        .single-check
           input(id='user-no-photo', type="checkbox", name="user[noPhoto]", checked=(('noPhoto' in user) && user.noPhoto ? "checked" : undefined))
-    .form-group
-      label.control-label.col-sm-4(for='user-agree-code') Agree to code of conduct
-      .col-sm-8
-        .checkbox
-          input(id='user-agree-code', type="checkbox", name="user[agreeCode]", checked=(('agreeCode' in user) && user.agreeCode ? "checked" : undefined))
-    .col-sm-12
+      .question
+        label(for='user-agree') Agree to Terms and Code of Conduct
+          span.desc
+            | Do do this.
+        .single-check
+          input(id='user-agree', type="checkbox", name="user[agree]", checked=(('agree' in user) && user.agreeCode ? "checked" : undefined))
       input.submit(type="submit", value="Submit", class="btn btn-primary")

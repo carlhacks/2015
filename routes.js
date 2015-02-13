@@ -22,30 +22,42 @@ module.exports.setup = function (app, User) {
     })
   });
 
+  app.get('/register', function(req, res){
+    User.count({}, function( err, count){
+      res.render('form', {
+        title: 'CarlHacks - Register',
+        count: count,
+        user: {},
+        actionSent: 'Register for CarlHacks'
+      });
+    })
+  });
+
   app.get('/update', function (req, res){
     var email = req.param('email', false);
     var id = req.param('id', false);
     if (!email || !id) {
-      return res.status(404).render('errors.jade', {
-        status: 404,
-        msg: 'Page not found.'
-      });
+      return res.redirect('/');
     }
     id = mongoose.Types.ObjectId(id);
     User.findOne({_id: id, email: email}, function (error, user){
       if (error || !user) {
-        return res.redirect('/');
+        return res.status(404).render('errors', {
+          status: 404,
+          msg: 'Page not found.'
+        });
       }
-      res.render('userUpdate.jade', {
-        title: 'Update Your Info',
+      res.render('form', {
+        title: 'CarlHacks - Update',
         user: user,
+        actionSent: 'Update your account'
       });
     });
   });
 
   app.post('/users/save', function (req, res) {
     if (!req.body || !req.body.hasOwnProperty('user')) {
-      return res.status(400).render('errors.jade', {
+      return res.status(400).render('errors', {
         status: 400,
         msg: 'Bad input.'
       });

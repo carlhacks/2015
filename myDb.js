@@ -11,8 +11,7 @@ var User = mongoose.model('User',
      idsWoman: Boolean,
      grant: Boolean,
      noPhoto: Boolean,
-     agreeMail: {type: Boolean, required: true},
-     agreeCode: {type: Boolean, required: true}
+     agree: {type: Boolean, required: true}
     }
 );
 

@@ -39,6 +39,28 @@ db.once('open', function callback () {
   console.log('MongoDB open and ready');
 });
 
+
+app.use(function(req, res, next){
+  res.status(404);
+
+  // respond with html page
+  if (req.accepts('html')) {
+    return res.status(404).render('errors', {
+      status: 404,
+      heading: 'Page not found',
+      msg: 'Sorry, the page ' + req.url + ' doesn\'t seem to exist.'
+    });
+  }
+
+  // respond with json
+  if (req.accepts('json')) {
+    return res.send({ error: 'Not found' });
+  }
+
+  // default to plain-text
+  res.type('txt').send('Not found');
+});
+
 // set up all routing
 routes.setup(app, User);
 

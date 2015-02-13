@@ -103,3 +103,71 @@ body {
   color: #1F2165;
   font-weight: 600;
 }
+
+p.action {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 24px;
+}
+
+fieldset.user {
+  border: 0 solid transparent;
+  margin: 0;
+  padding: 0 0 30px 0;
+}
+
+fieldset.user .question {
+  width: 100%;
+  margin: 10px 0;
+  display: block;
+}
+
+fieldset.user .question label {
+  width: 50%;
+  text-align: right;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+fieldset.user .question label:after {
+  content: '*';
+  color: transparent;
+}
+fieldset.user .question label.required:after {
+  color: red;
+}
+
+fieldset.user .question .text,
+fieldset.user .question .multi-check,
+fieldset.user .question .single-check {
+  display: inline-block;
+  box-sizing: border-box;
+  padding-left: 5px;
+  vertical-align: top;
+  max-width: 50%;
+}
+
+fieldset.user .question .multi-check {
+  line-height: 1.4;
+}
+fieldset.user .question .multi-check input {
+  margin-right: 7px;
+}
+
+fieldset.user .question label .desc{
+  font-style: italic;
+  display: block;
+  max-width: 250px;
+  margin-top: 3px;
+  margin-left: auto;
+  text-align: justify;
+}
+
+fieldset.user .submit {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
