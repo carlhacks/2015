@@ -11,5 +11,8 @@ html(lang="en")
     if additional_js
         - each js in additional_js
             script(src='/js/'+js)
+    script(src='//use.typekit.net/vbc4hbm.js')
+    script.
+        try{Typekit.load();}catch(e){}
   body
     block content
