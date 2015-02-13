@@ -124,6 +124,7 @@ body {
   margin-top: 2em;
   position: relative;
   box-sizing: border-box;
+  border-radius: 4px;
 }
 
 .card h1 {
