@@ -99,6 +99,23 @@ body {
   box-shadow: none;
 }
 
+.signup .register {
+  border-color: #1e2164;
+  color: #1e2164;
+  width: 18em;
+  margin: 2em auto;
+}
+
+.signup .register:focus {
+  box-shadow: 0px 0px 5px #1e2164;
+}
+
+.signup .register:hover {
+  color: #fff;
+  background-color: #1e2164;
+  box-shadow: none;
+}
+
 .card {
   background-color: #F3F3F7;
   max-width: 35em;
@@ -117,14 +134,6 @@ body {
   font-weight: 600;
 }
 
-<<<<<<< HEAD
-form.user {
-  background-color: #F3F3F7;
-  max-width: 33em;
-  padding: 2em;
-  margin: 2em auto;
-  border: 0 solid transparent;
-=======
 .card p {
   line-height: 1.6;
 }
@@ -184,7 +193,15 @@ p.action {
   text-align: center;
   margin: 20px 0;
   font-size: 24px;
->>>>>>> Add icons to cards
+}
+
+
+form.user {
+  background-color: #F3F3F7;
+  max-width: 33em;
+  padding: 2em;
+  margin: 2em auto;
+  border: 0 solid transparent;
 }
 
 form.user fieldset {
