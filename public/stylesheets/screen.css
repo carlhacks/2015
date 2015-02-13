@@ -5,8 +5,11 @@ body {
 }
 
 .hero {
+  display: -webkit-flex;
   display: flex;
+  -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
   align-items: center;
   background-image: radial-gradient(circle at bottom left, #2E3192 0%, #0C0D2A 80%);
   color: #fff;
