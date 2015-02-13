@@ -78,7 +78,7 @@ a:hover {
 }
 
 /* register button */
-.register {
+.register, .register:visited {
   background-color: transparent;
   border: 3px solid #fff;
   border-radius: 4px;
@@ -90,6 +90,8 @@ a:hover {
   color: #fff;
   transition: 0.1s all ease-in-out;
   outline: none;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .register:focus {
