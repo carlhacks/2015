@@ -30,20 +30,15 @@ body {
 }
 
 /* for transparent background hack */
-.hero>div {
+.hero>img, .hero>div, .hero>section {
   position: relative;
   z-index: 1;
 }
 
 .logo {
   float: left;
-  margin-right: 2.3em;
+  margin-right: 2.2em;
   height: 10.3125em;
-}
-
-.hero-info {
-  float: right;
-  padding-top: 0.3em;
 }
 
 .hero h1 {
