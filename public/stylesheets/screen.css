@@ -115,26 +115,37 @@ body {
   font-weight: 600;
 }
 
-p.action {
-  width: 100%;
-  text-align: center;
-  margin: 20px 0;
-  font-size: 24px;
+form.user {
+  background-color: #F3F3F7;
+  max-width: 33em;
+  padding: 2em;
+  margin: 2em auto;
+  border: 0 solid transparent;
 }
 
-fieldset.user {
+form.user fieldset {
   border: 0 solid transparent;
   margin: 0;
-  padding: 0 0 30px 0;
+  padding: 0;
 }
 
-fieldset.user .question {
+form.user p.action {
+  width: 100%;
+  text-align: center;
+  margin: 1.25em 0;
+  font-size: 2em;
+  font-weight: 600;
+  color: #1F2165;
+  text-transform: uppercase;
+}
+
+form.user .question {
   width: 100%;
   margin: 10px 0;
   display: block;
 }
 
-fieldset.user .question label {
+form.user .question label {
   width: 50%;
   text-align: right;
   display: inline-block;
@@ -143,17 +154,17 @@ fieldset.user .question label {
   vertical-align: top;
 }
 
-fieldset.user .question label:after {
+form.user .question label .q:after {
   content: '*';
   color: transparent;
 }
-fieldset.user .question label.required:after {
+form.user .question label .q.required:after {
   color: red;
 }
 
-fieldset.user .question .text,
-fieldset.user .question .multi-check,
-fieldset.user .question .single-check {
+form.user .question .text,
+form.user .question .multi-check,
+form.user .question .single-check {
   display: inline-block;
   box-sizing: border-box;
   padding-left: 5px;
@@ -161,23 +172,24 @@ fieldset.user .question .single-check {
   max-width: 50%;
 }
 
-fieldset.user .question .multi-check {
+form.user .question .multi-check {
   line-height: 1.4;
 }
-fieldset.user .question .multi-check input {
+form.user .question .multi-check input {
   margin-right: 7px;
 }
 
-fieldset.user .question label .desc{
+form.user .question label .desc{
   font-style: italic;
   display: block;
-  max-width: 250px;
-  margin-top: 3px;
+  max-width: 14em;
+  margin-top: .25em;
   margin-left: auto;
-  text-align: justify;
+  text-align: left;
+  font-size: .875em;
 }
 
-fieldset.user .submit {
+form.user .submit {
   margin-left: auto;
   margin-right: auto;
   display: block;

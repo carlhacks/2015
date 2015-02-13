@@ -9,28 +9,36 @@ block hero
     span.subheader-fact Northfield, MN
 
 block content
-  p.action=actionSent
-  form(action="/users/save", method="post")
-    fieldset.user
+  form.user(action="/users/save", method="post")
+    p.action=actionSent
+    fieldset
       if '_id' in user
         input(type='hidden', value=user._id, name='user[id]')
       .question
-        label.required(for='user-name') Full Name
+        label(for='user-name')
+          span.q.required Full Name
         input.text(id='user-name', type='text',name='user[name]',required, value=(('name' in user) ? user.name : ''))
       .question
-        label.required(for='user-email') Email
+        label(for='user-email')
+          span.q.required Email
         input.text(id='user-email', type='text',name='user[email]',required, value=(('email' in user) ? user.email : ''))
       .question
-        label.required(for='user-school') School
+        label(for='user-school')
+          span.q.required School
         input.text(id='user-school', type='text',name='user[school]',required, value=(('school' in user) ? user.school : 'Carleton College'))
       .question
-        label.required(for='user-year') Class Year
+        label(for='user-year')
+          span.q.required Class Year
         input.text(id='user-year', type='number',name='user[classYear]',required, value=(('classYear' in user) ? user.classYear : 2015))
       .question
-        label(for='user-urls') Online Profiles (GitHub, LinkedIn, etc.)
+        label(for='user-urls')
+          | Online Profiles
+          br
+          | (GitHub, LinkedIn, etc.)
         textarea.text(id='user-urls',name='user[urls]')=('urls' in user) ? user.urls : undefined
       .question
-        label.required(for='user-shirt-size') Shirt Size
+        label(for='user-shirt-size')
+          span.q.required Shirt Size
         select(id='user-shirt-size',name='user[shirtSize]')
           option(value='XS', selected=(('shirtSize' in user) && user.shirtSize == 'XS' ? 'selected' : undefined))
             | X Small
@@ -45,9 +53,10 @@ block content
           option(value='XXL', selected=(('shirtSize' in user) && user.shirtSize == 'XXL' ? 'selected' : undefined))
             | XX Large
       .question
-        label Dietary Restrictions
+        label(for='user-vegetarian')
+          span.q Dietary Restrictions
         .multi-check
-          input(type="checkbox", name="user[dietary][vegetarian]", checked=(('dietary' in user) && (user.dietary.indexOf('vegetarian') >= 0) ? "checked" : undefined))
+          input(id='user-vegetarian', type="checkbox", name="user[dietary][vegetarian]", checked=(('dietary' in user) && (user.dietary.indexOf('vegetarian') >= 0) ? "checked" : undefined))
           | Vegetarian
           br
           input(type="checkbox", name="user[dietary][vegan]",  checked=(('dietary' in user) && (user.dietary.indexOf('vegan') >= 0) ? "checked" : undefined))
@@ -59,26 +68,36 @@ block content
           input(type="checkbox", name="user[dietary][kosher]",  checked=(('dietary' in user) && (user.dietary.indexOf('kosher') >= 0) ? "checked" : undefined))
           | Kosher
       .question
-        label(for='user-ids-woman') Identify as a Woman and Request Pre-registration
+        label(for='user-ids-woman')
+          span.q
+            | Identify as a Woman and
+            br
+            | Request Pre-registration
           span.desc
             | For those that identify as a woman and wish to be considered for
             | pre-registration, please check this box.
         .single-check
           input(id='user-ids-woman', type="checkbox", name="user[idsWoman]", checked=(('idsWoman' in user) && user.idsWoman ? "checked" : undefined))
       .question
-        label(for='user-need-grant') Need a Travel Grant
+        label(for='user-need-grant')
+          span.q Need a Travel Grant
           span.desc
             | We can't guarantee that everyone will get grants, but...
         .single-check
           input(id='user-need-grant', type="checkbox", name="user[grant]", checked=(('grant' in user) && user.grant ? "checked" : undefined))
       .question
-        label(for='user-no-photo') Opt out of Photos
+        label(for='user-no-photo')
+          span.q Opt out of Photos
           span.desc
             | Do not do this.
         .single-check
           input(id='user-no-photo', type="checkbox", name="user[noPhoto]", checked=(('noPhoto' in user) && user.noPhoto ? "checked" : undefined))
       .question
-        label(for='user-agree') Agree to Terms and Code of Conduct
+        label(for='user-agree')
+          span.q
+            | Agree to Terms and
+            br
+            | Code of Conduct
           span.desc
             | Do do this.
         .single-check
