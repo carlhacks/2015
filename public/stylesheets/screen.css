@@ -1,0 +1,84 @@
+body {
+  font-family: proxima-nova;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: radial-gradient(circle at bottom left, #2E3192 0%, #0C0D2A 80%);
+  color: #fff;
+  position: relative; /* for transparent background hack */
+  padding: 9em 0;
+}
+
+/* hack to get transparent background */
+.hero:after {
+  content: "";
+  background: url(/img/herobg.png) bottom center/cover;
+  opacity: 0.16;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+
+/* for transparent background hack */
+.hero>div {
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  float: left;
+  margin-right: 2.3em;
+  height: 10.3125em;
+}
+
+.hero-info {
+  float: right;
+  padding-top: 0.3em;
+}
+
+.hero h1 {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 3.625em;
+  margin: 0;
+}
+
+.logo-word:first-child {
+  font-weight: 800;
+}
+
+.subheader {
+  margin-bottom: 1em;
+  display: block;
+}
+
+.subheader-fact {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-right: 1.5em;
+  font-size: 0.875em;
+}
+
+/* register button */
+.register {
+  background-color: #fff;
+  color: #3D3D85;
+  border: none;
+  border-radius: 4px;
+  padding: 0.7em 1.6em;
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.register:hover {
+  opacity: 1;
+}

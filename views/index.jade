@@ -1,16 +1,17 @@
 extends layout
 
 block content
-  header
-    object.logo(data='/img/logo.svg')
-      img(src='/img/logo.png')
-    h1
-      span.logo-word Carl
-      span.logo-word Hacks
-    span.subheader
-      span.subheader-fact April 17-19
-      span.subheader-fact Northfield, MN
-    button.register Sign Up
+  header.hero
+    div
+      img(src='/img/logo-white.png').logo
+      div.hero-info
+        h1
+          span.logo-word Carl
+          span.logo-word Hacks
+        span.subheader
+          span.subheader-fact April 17-19
+          span.subheader-fact Northfield, MN
+        button.register Sign Up
   main
     section.card.right.mission
       h1 Our Mission
