@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+  head
+    title= title
+    link(rel='icon', type='image/png', href='/img/favicon.png')
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='/stylesheets/screen.css')
+    if additional_stylesheets
+        - each stylesheet in additional_stylesheets
+            link(rel='stylesheet', href='/stylesheets/'+stylesheet)
+    script(src='/js/jquery.min.js')
+    if additional_js
+        - each js in additional_js
+            script(src='/js/'+js)
+    script(src='//use.typekit.net/vbc4hbm.js')
+    script.
+        try{Typekit.load();}catch(e){}
+  body
+    block page
