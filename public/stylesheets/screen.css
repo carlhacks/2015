@@ -136,6 +136,17 @@ a:hover {
   border-radius: 4px;
 }
 
+.card.divider {
+  padding: 0;
+  overflow: hidden;
+  background-image: radial-gradient(circle at bottom left, #2E3192 0%, #0C0D2A 80%);
+}
+.card.divider img {
+  width:100%;
+  display: block;
+  opacity: 0.35;
+}
+
 .card.hidden {
   display: none;
 }
@@ -157,9 +168,6 @@ a:hover {
 
 .card.right {
   padding-left: 100px;
-}
-
-.card.left {
 }
 
 .card:after {
