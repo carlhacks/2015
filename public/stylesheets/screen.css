@@ -30,7 +30,7 @@ a:hover {
 /* hack to get transparent background */
 .hero:after {
   content: "";
-  background: url(/img/herobg.png) bottom center/cover;
+  background: url(/img/herobg.jpg) center center/cover;
   opacity: 0.16;
   top: 0;
   left: 0;
