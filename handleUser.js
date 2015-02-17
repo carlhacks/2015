@@ -33,6 +33,20 @@ var saveUser = function (model, data, host, callback) {
     return callback(true);
   };
 
+  // get and validate urls
+  if (data.hasOwnProperty('urls')) {
+    var urls = data.urls.split('\n');
+    for (var i = 0; i < urls.length; i++) {
+      // remove common errors
+      urls[i] = urls[i].trim();
+      urls[i] = urls[i].replace(',', '');
+      if (!validator.isURL(urls[i])) {
+        return callback(true);
+      }
+    }
+    data.urls = urls;
+  }
+
   data.dietary = dietary;
   var handle_user = function (error, user, isNew) {
     var old_email = user.email;

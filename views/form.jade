@@ -35,7 +35,10 @@ block content
           | Online Profiles
           br
           | (GitHub, LinkedIn, etc.)
-        textarea.text(id='user-urls',name='user[urls]')=('urls' in user) ? user.urls : undefined
+        textarea.text(id='user-urls',name='user[urls]',placeholder='one per line')
+          if user.urls
+            each url in user.urls
+              url
       .question
         label(for='user-shirt-size')
           span.q.required Shirt Size
