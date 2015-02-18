@@ -32,10 +32,13 @@ block content
         input.text(id='user-year', type='number',name='user[classYear]',required, value=(('classYear' in user) ? user.classYear : 2015))
       .question
         label(for='user-urls')
-          | Online Profiles
+          | Links to Online Profiles
           br
           | (GitHub, LinkedIn, etc.)
-        textarea.text(id='user-urls',name='user[urls]')=('urls' in user) ? user.urls : undefined
+        textarea.text(id='user-urls',name='user[urls]',placeholder='github.com/carlhacks\ntwitter.com/carlhacks')
+          if user.urls
+            each url in user.urls
+              = url + '\n'
       .question
         label(for='user-shirt-size')
           span.q.required Shirt Size
