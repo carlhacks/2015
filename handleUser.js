@@ -30,17 +30,20 @@ var saveUser = function (model, data, host, callback) {
 
   // validate email
   if (data.hasOwnProperty('email') && !validator.isEmail(data.email)) {
+    console.log('Bad email')
     return callback(true);
   };
 
   // get and validate urls
   if (data.hasOwnProperty('urls')) {
-    var urls = data.urls.split('\n');
+    var urls = data.urls.trim().split('\n');
     for (var i = 0; i < urls.length; i++) {
-      // remove common errors
+      // remove common errors, remove http/https
       urls[i] = urls[i].trim();
-      urls[i] = urls[i].replace(',', '');
+      urls[i] = urls[i].replace(/ *[,;]$/, '')
+                       .replace(/^https?:\/\//, '');
       if (!validator.isURL(urls[i])) {
+        console.log('Bad URL: ', urls[i]);
         return callback(true);
       }
     }
