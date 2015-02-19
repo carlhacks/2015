@@ -10,50 +10,42 @@ block hero
     span.subheader-fact Northfield, MN
 
 block content
-  form.user(id='user-form', enctype='multipart/form-data', action='/save', method='post')
-    p.action=actionSent
+  form.card.user(id='user-form', enctype='multipart/form-data', action='/save', method='post')
+    h1=actionSent
+    p
+      | We're glad to hear you're interested in coming to CarlHacks! Simply fill out this short form,
+      | and once applications close, we'll email you your acceptance results. Feel free to email us at
+      | <a href="mailto:info@carlhacks.io?subject=Application Question">info@carlhacks.io</a> if you have
+      | any questions.
     if 'errors' in user
       p.errors!=user.errors
     fieldset
       if '_id' in user
         input(type='hidden', value=user._id, name='user[id]')
+      h2 General Information
       .question
         label(for='user-name')
-          span.q.required Full Name
+          | Full Name
+          span.short-desc required
         input.text(id='user-name', type='text',name='user[name]',required, value=(('name' in user) ? user.name : ''))
       .question
         label(for='user-email')
-          span.q.required Email
+          | Email
+          span.short-desc required
         input.text(id='user-email', type='text',name='user[email]',required, value=(('email' in user) ? user.email : ''))
       .question
         label(for='user-school')
-          span.q.required School
+          | School
+          span.short-desc required
         input.text(id='user-school', type='text',name='user[school]',required, value=(('school' in user) ? user.school : 'Carleton College'))
       .question
         label(for='user-year')
-          span.q.required Class Year
+          | Year of Graduation
+          span.short-desc required
         input.number(id='user-year', type='number',name='user[classYear]',required, value=(('classYear' in user) ? user.classYear : 2015))
       .question
-        label(for='user-urls')
-          | Links to Online Profiles
-          br
-          | (GitHub, LinkedIn, etc.)
-        textarea.text(id='user-urls', name='user[urls]', placeholder='github.com/carlhacks\ntwitter.com/carlhacks')
-          if user.urls
-            each url in user.urls
-              = url + '\n'
-      .question
-        label(for='user-resume')
-          span.q Resume
-          if 'resume' in user
-            span.desc
-              | Current file:
-              = ' ' + user.resume.name
-        input(id='user-resume', type='file', accept='*', name='resume')
-        button.file &lt;upload here&gt;
-      .question
         label(for='user-shirt-size')
-          span.q.required Shirt Size
+          | Shirt Size
         select(id='user-shirt-size',name='user[shirtSize]')
           option(value='XS', selected=(('shirtSize' in user) && user.shirtSize == 'XS' ? 'selected' : undefined))
             | X Small
@@ -68,55 +60,74 @@ block content
           option(value='XXL', selected=(('shirtSize' in user) && user.shirtSize == 'XXL' ? 'selected' : undefined))
             | XX Large
       .question
-        label(for='user-vegetarian')
-          span.q Dietary Restrictions
-        .multi-check
-          input(id='user-vegetarian', type='checkbox', name='user[dietary][vegetarian]', checked=(('dietary' in user) && (user.dietary.indexOf('vegetarian') >= 0) ? 'checked' : undefined))
-          | Vegetarian
-          br
-          input(type='checkbox', name='user[dietary][vegan]',  checked=(('dietary' in user) && (user.dietary.indexOf('vegan') >= 0) ? 'checked' : undefined))
-          | Vegan
-          br
-          input(type='checkbox', name='user[dietary][glutenfree]',  checked=(('dietary' in user) && (user.dietary.indexOf('glutenfree') >= 0) ? 'checked' : undefined))
-          | Gluten Free
-          br
-          input(type='checkbox', name='user[dietary][kosher]',  checked=(('dietary' in user) && (user.dietary.indexOf('kosher') >= 0) ? 'checked' : undefined))
-          | Kosher
+        label(for='user-urls')
+          | Links to Online Profiles
+          | (GitHub, LinkedIn, etc.)
+        textarea.text(id='user-urls', name='user[urls]', placeholder='github.com/carlhacks\ntwitter.com/carlhacks', rows=3)
+          if user.urls
+            each url in user.urls
+              = url + '\n'
       .question
-        label(for='user-ids-woman')
-          span.q
-            | Identify as a Woman and
-            br
-            | Request Pre-registration
-          span.desc
-            | For those that identify as a woman and wish to be considered for
-            | pre-registration, please check this box.
-        .single-check
-          input(id='user-ids-woman', type='checkbox', name='user[idsWoman]', checked=(('idsWoman' in user) && user.idsWoman ? 'checked' : undefined))
+        label(for='user-resume')
+          | Resume
+          if 'resume' in user
+            span.desc
+              | Current file:
+              = ' ' + user.resume.name
+        input(id='user-resume', type='file', accept='*', name='resume')
+        button.file &lt;upload here&gt;
+      h2 Optional Checkboxes
       .question
-        label(for='user-need-grant')
-          span.q Need a Travel Grant
-          span.desc
-            | We can't guarantee that everyone will get grants, but...
-        .single-check
-          input(id='user-need-grant', type='checkbox', name='user[grant]', checked=(('grant' in user) && user.grant ? 'checked' : undefined))
+        .checklist
+          label
+            input(id='user-need-grant', type='checkbox', name='user[grant]', checked=(('grant' in user) && user.grant ? 'checked' : undefined))
+            span I would like to apply for a travel grant.
+            span.desc
+              | If you're taking a flight to CarlHacks, there are a limited number of grants
+              | to help pay for airfare.
+          label
+            input(id='user-no-photo', type='checkbox', name='user[noPhoto]', checked=(('noPhoto' in user) && user.noPhoto ? 'checked' : undefined))
+            span Please do <em>not</em> take photos of me.
+            span.desc
+              | We will be taking photographs to document this event. If you'd prefer photographers avoid
+              | taking photos of you, check this box.
+          label
+            input(id='user-ids-woman', type='checkbox', name='user[idsWoman]', checked=(('idsWoman' in user) && user.idsWoman ? 'checked' : undefined))
+            span I identify as a woman and would like priority registration.
+              span.desc
+                | Optional priority registration is available for women. Applications with priority registration
+                | will be considered before other applications.
+      h2 Dietary Restrictions
       .question
-        label(for='user-no-photo')
-          span.q Opt out of Photos
-          span.desc
-            | Do not do this.
-        .single-check
-          input(id='user-no-photo', type='checkbox', name='user[noPhoto]', checked=(('noPhoto' in user) && user.noPhoto ? 'checked' : undefined))
+        .checklist
+          label
+            input(id='user-vegetarian', type='checkbox', name='user[dietary][vegetarian]', checked=(('dietary' in user) && (user.dietary.indexOf('vegetarian') >= 0) ? 'checked' : undefined))
+            span.check-label Vegetarian
+          label
+            input(type='checkbox', name='user[dietary][vegan]',  checked=(('dietary' in user) && (user.dietary.indexOf('vegan') >= 0) ? 'checked' : undefined))
+            span.check-label Vegan
+          label
+            input(type='checkbox', name='user[dietary][glutenfree]',  checked=(('dietary' in user) && (user.dietary.indexOf('glutenfree') >= 0) ? 'checked' : undefined))
+            span.check-label Gluten Free
+          label
+            input(type='checkbox', name='user[dietary][kosher]',  checked=(('dietary' in user) && (user.dietary.indexOf('kosher') >= 0) ? 'checked' : undefined))
+            span.check-label Kosher
+          label
+            input(type='checkbox', name='user[dietary][lactose]',  checked=(('dietary' in user) && (user.dietary.indexOf('lactose') >= 0) ? 'checked' : undefined))
+            span.check-label Lactose Intolerant
+          label
+            input(type='checkbox', name='user[dietary][pescetarian]',  checked=(('dietary' in user) && (user.dietary.indexOf('pescetarian') >= 0) ? 'checked' : undefined))
+            span.check-label Pescetarian
+          label
+            input(type='checkbox', name='user[dietary][halal]',  checked=(('dietary' in user) && (user.dietary.indexOf('halal') >= 0) ? 'checked' : undefined))
+            span.check-label Halal
+          .desc
+            | Other? Email <a href="mailto:info@carlhacks.io?subject=Dietary%20Restrictions">info@carlhacks.io</a>.
+      h2 Terms
       .question
-        label(for='user-agree')
-          span.q
-            | Agree to Terms and
-            br
-            | Code of Conduct
-          span.desc
-            | Do do this.
-        .single-check
-          input(id='user-agree', type='checkbox', name='user[agree]', checked=(('agree' in user) && user.agree ? 'checked' : undefined))
-      input.register(type='submit', value='Submit', class='btn btn-primary')
-  .go-home-wrapper
-    a.register.go-home(href='/') Home
+        .checklist
+          label
+            input(id='user-agree', type='checkbox', name='user[agree]', checked=(('agree' in user) && user.agree ? 'checked' : undefined))
+            | I agree to the <a href="/code-of-conduct">Code of Conduct</a>
+            span.short-desc required
+      input.register(type='submit', value='Apply', class='btn btn-primary')
