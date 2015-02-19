@@ -191,6 +191,11 @@ a.hero-link {
   margin-bottom: 0;
 }
 
+.card.error {
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+
 .card.error img {
   display: block;
   margin: 0 auto 1rem auto;
