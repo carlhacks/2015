@@ -13,7 +13,7 @@ module.exports.setup = function (app, User) {
   });
 
   app.get('/favicon.ico', function (req, res) {
-    res.sendfile('img/favicon.png', {root: './public'});
+    res.sendFile('img/favicon.png', {root: './public'});
   });
 
   app.get('/count', function(req, res){
@@ -28,8 +28,7 @@ module.exports.setup = function (app, User) {
         title: 'CarlHacks - Register',
         count: count,
         user: {},
-        actionSent: 'Register for CarlHacks',
-        additional_js: ['userForm.js']
+        actionSent: 'Register for CarlHacks'
       });
     })
   });
@@ -51,24 +50,35 @@ module.exports.setup = function (app, User) {
       res.render('form', {
         title: 'CarlHacks - Update',
         user: user,
-        actionSent: 'Update your account',
-        additional_js: ['userForm.js']
+        actionSent: 'Update your account'
       });
     });
   });
 
-  app.post('/users/save', function (req, res) {
-    if (!req.body || !req.body.hasOwnProperty('user')) {
-      return res.status(400).render('errors', {
-        status: 400,
-        msg: 'Bad input.'
+  app.post('/save', function (req, res) {
+    console.log(req.body);
+    console.log(req.body.user);
+    console.log(req.files);
+    function ret (user) {
+      return res.render('form', {
+        title: 'CarlHacks - Save Error',
+        actionSent: 'Please fix the following errors:',
+        user: user
       });
+    }
+    if (!req.body || !req.body.hasOwnProperty('user')) {
+      return ret({errors: "No data received. Please fill out the form."});
     };
     saveUser(User, req.body.user, req.headers.host, function (error, link){
       if (error) {
-        return res.status(400).send({status: 'error'});
+        var user = req.body.user;
+        user['errors'] = error;
+        return ret(user);
       };
-      return res.send({status: 'ok', link: link});
+      return res.render('success', {
+        title: 'CarlHacks',
+        link: link
+      });
     });
   })
 };

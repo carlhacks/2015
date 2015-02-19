@@ -306,9 +306,8 @@ form.user .question label .desc{
   font-size: .875em;
 }
 
-form.user .question input[type=text],
-form.user .question input[type=tel],
-form.user .question input[type=number],
+form.user .question input.text,
+form.user .question input.number,
 form.user .question textarea {
   border-radius: .25em;
   border: solid 1px #E3E3ED;

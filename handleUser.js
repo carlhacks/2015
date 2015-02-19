@@ -28,10 +28,12 @@ var saveUser = function (model, data, host, callback) {
     dietary.push(key);
   };
 
+  var errors = '';
+
   // validate email
   if (data.hasOwnProperty('email') && !validator.isEmail(data.email)) {
     console.log('Bad email')
-    return callback(true);
+    errors += '"' + data.email + '" is not a valid email.<br>';
   };
 
   // get and validate urls
@@ -44,7 +46,7 @@ var saveUser = function (model, data, host, callback) {
                        .replace(/^https?:\/\//, '');
       if (!validator.isURL(urls[i])) {
         console.log('Bad URL: ', urls[i]);
-        return callback(true);
+        errors += 'Poorly formatted URL: "' + data.email + '".<br>';
       }
     }
     data.urls = urls;
@@ -80,6 +82,10 @@ var saveUser = function (model, data, host, callback) {
         function (error) { callback(error, link); }
       );
     });
+  };
+
+  if (errors) {
+    return callback(errors);
   };
 
   if (data.hasOwnProperty('id')) {

@@ -31,3 +31,6 @@ db
 Thumbs.*
 
 api_keys.js
+
+uploads/*
+!uploads/.gitkeep
