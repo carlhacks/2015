@@ -37,7 +37,7 @@ block content
         label(for='user-school')
           | School
           span.short-desc required
-        input.text(id='user-school', type='text',name='user[school]',required, value=(('school' in user) ? user.school : 'Carleton College'))
+        input.text(id='user-school', type='text',name='user[school]',required, value=(('school' in user) ? user.school : ''))
       .question
         label(for='user-year')
           | Year of Graduation
