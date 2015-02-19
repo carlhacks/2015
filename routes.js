@@ -22,6 +22,10 @@ module.exports.setup = function (app, User) {
     })
   });
 
+  app.get('/code-of-conduct', function(req, res){
+    res.render('code', {title: 'CarlHacks - Code of Conduct'});
+  });
+
   app.get('/register', function(req, res){
     res.render('form', {
       title: 'CarlHacks - Register',
