@@ -23,4 +23,12 @@ html(lang="en")
       | ga('create', 'UA-59907509-1', 'auto');
       | ga('send', 'pageview');
   body
+    mixin footer
+      footer
+        h1
+          object.bottom-logo(src='/img/logo-white.svg')
+            img(src='/img/logo-white.png')
+          | Sponsors
+        div.sponsors
+          p sponsors go here.
     block page
