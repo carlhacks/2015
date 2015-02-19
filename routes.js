@@ -26,9 +26,9 @@ module.exports.setup = function (app, User) {
     res.render('code', {title: 'CarlHacks - Code of Conduct'});
   });
 
-  app.get('/register', function(req, res){
+  app.get('/apply', function(req, res){
     res.render('form', {
-      title: 'CarlHacks - Register',
+      title: 'CarlHacks - Apply',
       user: {},
       actionSent: 'Apply to CarlHacks',
       additional_js: ['fileUpload.js']
@@ -52,7 +52,7 @@ module.exports.setup = function (app, User) {
       res.render('form', {
         title: 'CarlHacks - Update',
         user: user,
-        actionSent: 'Update your account',
+        actionSent: 'Update your application',
         additional_js: ['fileUpload.js']
       });
     });
