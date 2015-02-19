@@ -93,6 +93,7 @@ a:hover {
   outline: none;
   box-sizing: border-box;
   text-align: center;
+  margin-bottom: 0.7em;
 }
 
 .register:focus {
