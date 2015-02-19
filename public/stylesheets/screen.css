@@ -82,7 +82,7 @@ a:hover {
   font-size: 1.40em;
 }
 
-.subheader-fact:last-child {
+.subheader-fact:nth-child(n+2) {
   float: right;
 }
 
