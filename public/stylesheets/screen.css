@@ -131,7 +131,7 @@ a:hover {
 
 .card {
   background-color: #F3F3F7;
-  max-width: 38em;
+  max-width: 41em;
   padding: 2em;
   margin: 0 auto;
   margin-top: 2em;
@@ -163,7 +163,7 @@ a:hover {
 }
 
 .card p {
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .card p:last-child {
