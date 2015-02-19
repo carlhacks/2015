@@ -62,7 +62,7 @@ var saveUser = function (model, data, host, callback) {
   var handle_user = function (error, user, isNew) {
     var old_resume = false;
     var old_email = user.email;
-    if (data.hasOwnProperty('resume') && ('resume' in user)) {
+    if (data.hasOwnProperty('resume') && ('resume' in user) && (typeof(user.resume) ==='string')) {
       old_resume = JSON.parse(JSON.stringify(user.resume));
     };
     for (key in USER_KEYS) {
