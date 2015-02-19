@@ -2,11 +2,13 @@ extends page
 
 block page
   header.hero
-    img(src='/img/logo-white.png').logo
+    a(href="/").hero-link
+      img(src='/img/logo-white.png').logo
     div
-      h1
-        span.logo-word Carl
-        span.logo-word Hacks
+      a(href="/").hero-link
+        h1
+          span.logo-word Carl
+          span.logo-word Hacks
       span.subheader
         span.subheader-fact April 24&ndash;26
         span.subheader-fact Northfield, MN

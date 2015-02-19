@@ -42,12 +42,17 @@ a:hover {
   bottom: 0;
   right: 0;
   position: absolute;
+  pointer-events: none;
 }
 
 /* for transparent background hack */
 .hero>img, .hero>div, .hero>section {
   position: relative;
   z-index: 1;
+}
+
+a.hero-link {
+  color: #fff;
 }
 
 .logo {

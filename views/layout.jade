@@ -2,7 +2,8 @@ extends page
 
 block page
   header.hero.small
-    img(src='/img/logo-white.png').logo
+    a(href="/").hero-link
+      img(src='/img/logo-white.png').logo
     div
       block hero
   block content
