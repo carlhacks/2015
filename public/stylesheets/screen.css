@@ -28,6 +28,10 @@ a:hover {
   padding: 9em 0;
 }
 
+.hero.small {
+  padding: 3em 0;
+}
+
 /* hack to get transparent background */
 .hero:after {
   content: "";
@@ -50,6 +54,10 @@ a:hover {
   float: left;
   margin-right: 2.2em;
   height: 10.3125em;
+}
+
+.hero.small .logo {
+  height: 7em;
 }
 
 .hero h1 {
