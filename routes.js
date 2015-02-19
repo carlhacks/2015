@@ -30,7 +30,7 @@ module.exports.setup = function (app, User) {
     res.render('form', {
       title: 'CarlHacks - Register',
       user: {},
-      actionSent: 'Register for CarlHacks',
+      actionSent: 'Apply to CarlHacks',
       additional_js: ['fileUpload.js']
     });
   });
