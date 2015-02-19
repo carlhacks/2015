@@ -3,6 +3,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   background-color: #E3E3ED;
+  -webkit-font-smoothing: antialiased;
 }
 
 a, a:visited, a:hover {
