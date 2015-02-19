@@ -81,6 +81,7 @@ a.hero-link {
 }
 
 .subheader {
+  min-height: 1.75em;
   margin-bottom: 1em;
   display: block;
 }
@@ -89,6 +90,11 @@ a.hero-link {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1.40em;
+}
+
+.subheader-fact:first-child {
+  clear: none;
+  float: left;
 }
 
 .subheader-fact:nth-child(n+2) {
@@ -408,8 +414,12 @@ footer .sponsors {
     font-size: 1.25em;
     display: block;
   }
-  .subheader-fact:nth-child(n+2) {
+  .subheader-fact:first-child {
+    clear: both;
     float: none;
+  }
+  .subheader-fact:nth-child(n+2) {
+    float: left;
   }
   .hero h1 {
     font-size: 1.875em;
