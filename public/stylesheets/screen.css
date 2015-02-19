@@ -434,6 +434,7 @@ footer .sponsors {
   }
   .card.mission:after{
     display: none;
+  }
   .hero > div {
     position: static;
   }
