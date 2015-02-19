@@ -1,3 +1,7 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
 body {
   font-family: proxima-nova;
   font-weight: 400;
@@ -142,7 +146,7 @@ a.hero-link {
   box-shadow: none;
 }
 
-.card {
+.card, form.user {
   background-color: #F3F3F7;
   max-width: 41em;
   padding: 2em;
@@ -150,7 +154,7 @@ a.hero-link {
   margin-top: 2em;
   position: relative;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: .25em;
 }
 
 .card.divider {
@@ -214,7 +218,7 @@ h1.error {
 }
 
 .card.right {
-  padding-left: 100px;
+  padding-left: 6em;
 }
 
 .card:after {
@@ -278,15 +282,6 @@ p.action {
   text-align: center;
   margin: 20px 0;
   font-size: 24px;
-}
-
-
-form.user {
-  background-color: #F3F3F7;
-  max-width: 33em;
-  padding: 2em;
-  margin: 2em auto;
-  border: 0 solid transparent;
 }
 
 form.user.hidden {
@@ -406,4 +401,53 @@ footer .sponsors {
   text-align: center;
   padding: 2rem 0 6rem 0;
   box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .subheader-fact {
+    font-size: 1.25em;
+    display: block;
+  }
+  .subheader-fact:nth-child(n+2) {
+    float: none;
+  }
+  .hero h1 {
+    font-size: 1.875em;
+  }
+  .logo {
+    margin-right: 1.5em;
+    height: 7em;
+  }
+  .card, form.user {
+    margin-right: 1em;
+    margin-left: 1em;
+    width: calc(100% - 2em);
+  }
+  footer {
+    margin: 6em 0 0 0;
+  }
+  footer h1 {
+    font-size: 1.5em;
+  }
+  .card.mission{
+    padding-left: 2em;
+  }
+  .card.mission:after{
+    display: none;
+  .hero > div {
+    position: static;
+  }
+  .hero > div .register{
+    position: absolute;
+    left: 1em;
+    bottom: 2em;
+    width: calc(100% - 2em);
+    display: block;
+  }
+  form.user .register {
+    width: 100%;
+  }
+  form.user button.file {
+    max-width: 18em;
+  }
 }
