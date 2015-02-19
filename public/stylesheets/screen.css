@@ -186,6 +186,24 @@ a:hover {
   margin-bottom: 0;
 }
 
+.card.error img {
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+h1.error {
+  color: #979797;
+  text-align: center;
+  margin: 0 0 0.5rem 0;
+}
+
+.error-msg {
+  text-align: center;
+  color: #555;
+  display: block;
+  margin: 0;
+}
+
 .card.right {
   padding-left: 100px;
 }
