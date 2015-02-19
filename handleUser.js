@@ -89,14 +89,14 @@ var saveUser = function (model, data, host, callback) {
         , link = 'http://' + host + '/update?email=' + email + '&id=' + _id;
 
       email = name + '<' + email + '>';
-      var verbs = isNew ? ['creating an', 'update your account'] :
-                          ['make more changes', 'updating your'];
+      var verbs = isNew ? ['applying', 'update your application'] :
+                          ['updating your application', 'make more changes'];
       if (old_email === saved_user.email) return callback(false, link);
       return mailer.sendText(
         email,
-        'Your CarlHacks Account',
-        'Thanks for ' + verbs[0] + ' account! We will be keeping you up to ' +
-        'date as we get closer to the event. In the mean time feel free to ' +
+        'Your CarlHacks Application',
+        'Thanks for ' + verbs[0] + '! We will update your acceptance status ' +
+        'as we get closer to the event. In the mean time feel free to ' +
         verbs[1] + ' here:\n\n' + link + '\n\nFor questions or ' +
         'assistance, contact info@carlhacks.io and we\'ll get back to you ' +
         'as fast as possible.\n\nThanks!\n-The CarlHacks Team',
