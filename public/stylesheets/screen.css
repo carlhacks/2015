@@ -403,7 +403,7 @@ footer .sponsors {
   box-sizing: border-box;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .subheader-fact {
     font-size: 1.25em;
     display: block;
