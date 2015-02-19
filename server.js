@@ -37,7 +37,6 @@ app.use(multer({
   }
 }));
 
-app.use(require('stylus').middleware(__dirname + '/public'));
 app.use(express.static(__dirname + '/public'));
 
 db.on('error', console.error.bind(console, 'connection error:'));
