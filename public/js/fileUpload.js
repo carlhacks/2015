@@ -7,7 +7,7 @@ $(document).ready(function () {
   });
 
   $('input[type=file]').change(function () {
-    var fname = $(this).val().split('\\').pop();
+    var fname = $(this).val().split('\\').pop() || '<upload here>';
     $(this).siblings('button.file').text(fname);
   });
 
