@@ -245,6 +245,24 @@ h1.error {
   width: 83px;
 }
 
+.social {
+  text-align: center;
+  width: 100%;
+  padding: 2em 0 0 0;
+  height: 2em;
+}
+.social img {
+  width: 2em;
+}
+.social a, .social a:visited, .social a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 0 0 2em;
+}
+.social a:first-child {
+  margin: 0;
+}
+
 p.action {
   width: 100%;
   text-align: center;

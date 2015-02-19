@@ -8,10 +8,19 @@ block page
         span.logo-word Carl
         span.logo-word Hacks
       span.subheader
-        span.subheader-fact April 24–26
+        span.subheader-fact April 24&ndash;26
         span.subheader-fact Northfield, MN
       a.register(href='/register') Register
   main
+    section.social
+      a(href='https://www.facebook.com/thereal.carlhacks', target='_blank')
+        img(src='/img/social/fb.png')
+      a(href='http://instagram.com/carlhacks', target='_blank')
+        img(src='/img/social/instagram.png')
+      a(href='https://plus.google.com/117569729082257476793', target='_blank')
+        img(src='/img/social/gplus.png')
+      a(href='https://twitter.com/carlhacks', target='_blank')
+        img(src='/img/social/twitter.png')
     section.card.right.mission
       h1 250 students. 36 hours. Limitless possibilities.
       p
@@ -20,7 +29,7 @@ block page
         | liberal arts perspective to the world of hackathons. Whether
         | you have a passion for graphic design or a penchant for systems,
         | your skills and ideas can help create something truly powerful.
-        | That’s the essence of the liberal arts perspective—diverse backgrounds
+        | That’s the essence of the liberal arts perspective&mdash;diverse backgrounds
         | often produce the most impressive results.
         = ' '
         strong What will you create?
@@ -34,7 +43,7 @@ block page
         | to submit their projects for judging, and prizes are awarded to the best projects in a variety of
         | categories.
       p
-        | You don’t even need meaningful coding experience to participate--hackathons are great opportunities
+        | You don’t even need meaningful coding experience to participate&mdash;hackathons are great opportunities
         | for learning new skills, as well as honing old ones. You can make an important contribution to a
         | CarlHacks project, whether you’re a pure graphic designer or a dedicated python enthusiast (or both!).
         | We’ll have sponsors and mentors on-site for old and new hackers alike to expand their coding and design
@@ -43,9 +52,9 @@ block page
         | your future ideas a reality.
       p
         | At CarlHacks, <strong>any student who is or was enrolled in an undergraduate
-        | collegiate institution during the 2014–2015 academic year</strong> is eligible
-        | to participate in <strong>teams of 2–5</strong>. You don’t even need previous hackathon
-        | experience—hackathons are great opportunities for learning new skills,
+        | collegiate institution during the 2014&ndash;2015 academic year</strong> is eligible
+        | to participate in <strong>teams of 2&ndash;5</strong>. You don’t even need previous hackathon
+        | experience&mdash;hackathons are great opportunities for learning new skills,
         | as well as honing old ones. We’ll have sponsors and mentors on-site for
         | old and new hackers alike to expand their coding abilities, enabling you
         | to grow skills and make connections with companies and developers in the
@@ -56,7 +65,7 @@ block page
         | <strong>You will need to bring your laptop, charger, your student ID card</strong>, and hardware if
         | you’re wishing to do a hardware hack. It is also strongly recommended that you bring
         | toiletries, a change of clothing, and a sleeping bag. You don’t need to have a project
-        | idea before the hackathon begins—some of the best ideas happen during hackathons, not
+        | idea before the hackathon begins&mdash;some of the best ideas happen during hackathons, not
         | before. You don’t even need a set team before the hackathon! Many people will come without
         | teams, and we will facilitate a “speed-dating” period to help single hackers form teams at
         | the beginning of the event.
@@ -98,20 +107,26 @@ block page
     section.card
       h1 Become a Sponsor or Mentor
       p
-        | Want to help new hackers learn and experienced hackers grow? Participate
-        | in CarlHacks as a mentor or a sponsor!
+        | Want to help new hackers learn and experienced hackers grow?
+        | Participate in CarlHacks as a mentor or a sponsor!
       p
-        | To volunteer as a CarlHacks mentor, contact us at 
-        a(href='mailto:info@carlhacks.io') info@carlhacks.io
-        | . We
-        | would love to have you run a workshop, walk the floor and answer questions
-        | during the event, or contribute your expertise in some other way.
+        | To volunteer as a CarlHacks mentor, contact us at
+        = ' '
+        a(href="mailto:mentor@carlhacks.io?subject=Mentor+CarlHacks")
+          | mentor@carlhacks.io
+        | . We would love to have you run a workshop, walk the floor and
+        | answer questions, or contribute your expertise in some other way.
       p
-        | Want to contribute a little bit more? Great! Our sponsors will not only help
-        | us make CarlHacks a possibility through their donations, but they will also
-        | have the opportunity to represent their brand and connect with some of the
-        | top students in the region. [Direct them to the pdf] to learn more about
-        | sponsoring CarlHacks.
+        | Want to get your company involved? Our sponsors will not only help
+        | us make CarlHacks a possibility through their donations, but they
+        | will also have the opportunity to represent their brand and
+        | connect with some of the top students in the midwest and beyond.
+        | Email us at
+        = ' '
+        a(href="mailto:sponsor@carlhacks.io?subject=Sponsor+CarlHacks")
+          | sponsor@carlhacks.io
+        = ' '
+        | to learn more about sponsoring CarlHacks.
 
     section.signup
       a.register(href='/register') Register
