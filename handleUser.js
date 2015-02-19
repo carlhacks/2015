@@ -1,4 +1,5 @@
 var mongoose = require('mongoose')
+  , fs = require('fs')
   , validator = require('validator')
   , mailer = require('./mailer');
 
@@ -13,7 +14,8 @@ var USER_KEYS = {
   idsWoman: 1,
   grant: 1,
   noPhoto: 1,
-  agree: 1
+  agree: 1,
+  resume: 1
 };
 
 var saveUser = function (model, data, host, callback) {
@@ -29,6 +31,10 @@ var saveUser = function (model, data, host, callback) {
   };
 
   var errors = '';
+
+  if (!data.agree) {
+    errors += 'You must agree to the CarlHacks terms and code of conduct.<br>';
+  };
 
   // validate email
   if (data.hasOwnProperty('email') && !validator.isEmail(data.email)) {
@@ -54,14 +60,30 @@ var saveUser = function (model, data, host, callback) {
 
   data.dietary = dietary;
   var handle_user = function (error, user, isNew) {
+    var old_resume = false;
     var old_email = user.email;
+    if (data.hasOwnProperty('resume') && ('resume' in user)) {
+      old_resume = JSON.parse(JSON.stringify(user.resume));
+    };
     for (key in USER_KEYS) {
       if (data.hasOwnProperty(key)) {
         user[key] = data[key];
-      }
-    }
+      };
+    };
     user.save(function (error, saved_user) {
       if (error) return callback(error);
+      console.log(saved_user.resume.path, old_resume.path);
+      if (old_resume) {
+        if (saved_user.resume.path != old_resume.path) {
+          fs.unlink(old_resume.path, function (err) {
+            if (err) {
+              console.log('failed to delete ' + old_resume.path);
+            } else {
+              console.log('deleted file ' + old_resume.path);
+            };
+          });
+        };
+      };
       var name = saved_user.name
         , email = saved_user.email
         , _id = saved_user._id

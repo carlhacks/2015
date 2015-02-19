@@ -6,6 +6,10 @@ var User = mongoose.model('User',
      school: {type: String, required: true},
      classYear: {type: Number, required: true, min: 2015, max: 2019},
      urls: [String],
+     resume: {
+        name: {type: String, required: true, trim: true},
+        path: {type: String, required: true, trim: true}
+     },
      shirtSize: {type: String, required: true, uppercase: true, trim: true},
      dietary: [String],
      idsWoman: Boolean,

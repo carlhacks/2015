@@ -43,7 +43,11 @@ block content
               = url + '\n'
       .question
         label(for='user-resume')
-          span.q.required Resume
+          span.q Resume
+          if 'resume' in user
+            span.desc
+              | Current file:
+              = ' ' + user.resume.name
         input.file(id='user-resume', type='file', accept='*', name='resume')
       .question
         label(for='user-shirt-size')

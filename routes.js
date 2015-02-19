@@ -56,22 +56,30 @@ module.exports.setup = function (app, User) {
   });
 
   app.post('/save', function (req, res) {
-    console.log(req.body);
-    console.log(req.body.user);
-    console.log(req.files);
-    function ret (user) {
+    var resume = false;
+    if (req.files.hasOwnProperty('resume')) {
+      resume = {
+        name: req.files.resume.originalname,
+        path: req.files.resume.path
+      };
+    };
+    var ret = function (user) {
       return res.render('form', {
         title: 'CarlHacks - Save Error',
         actionSent: 'Please fix the following errors:',
         user: user
       });
-    }
+    };
     if (!req.body || !req.body.hasOwnProperty('user')) {
       return ret({errors: "No data received. Please fill out the form."});
+    };
+    if (resume) {
+      req.body.user['resume'] = resume;
     };
     saveUser(User, req.body.user, req.headers.host, function (error, link){
       if (error) {
         var user = req.body.user;
+        delete user.resume;
         user['errors'] = error;
         return ret(user);
       };
