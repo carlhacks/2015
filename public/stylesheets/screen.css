@@ -8,11 +8,11 @@ body {
 
 a, a:visited, a:hover {
   text-decoration: none;
-  color: #4D6CED;
+  color: #0f00b3;
   cursor: pointer;
 }
 a:hover {
-  color: #2E3192;
+  color: #0d00ff;
 }
 
 .hero {
