@@ -82,6 +82,21 @@ block content
           br
           input(type='checkbox', name='user[dietary][kosher]',  checked=(('dietary' in user) && (user.dietary.indexOf('kosher') >= 0) ? 'checked' : undefined))
           | Kosher
+          br
+          input(type='checkbox', name='user[dietary][lactose]',  checked=(('dietary' in user) && (user.dietary.indexOf('lactose') >= 0) ? 'checked' : undefined))
+          | Lactose Intolerant
+          br
+          input(type='checkbox', name='user[dietary][pescetarian]',  checked=(('dietary' in user) && (user.dietary.indexOf('pescetarian') >= 0) ? 'checked' : undefined))
+          | Pescetarian
+          br
+          input(type='checkbox', name='user[dietary][halal]',  checked=(('dietary' in user) && (user.dietary.indexOf('halal') >= 0) ? 'checked' : undefined))
+          | Halal
+          br
+          | Other? Email
+          = ' '
+          a(href="mailto:info@carlhacks.io?subject=Dietary+Restrictions")
+            | info@carlhacks.io
+          | .
       .question
         label(for='user-ids-woman')
           span.q
