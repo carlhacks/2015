@@ -10,6 +10,7 @@ var USER_KEYS = {
   classYear: 1,
   urls: 1,
   shirtSize: 1,
+  bus: 1,
   dietary: 1,
   idsWoman: 1,
   grant: 1,

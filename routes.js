@@ -31,6 +31,7 @@ module.exports.setup = function (app, User) {
       title: 'CarlHacks - Apply',
       user: {},
       actionSent: 'Apply to CarlHacks',
+      subVerb: 'apply',
       additional_js: ['fileUpload.js']
     });
   });
@@ -53,6 +54,7 @@ module.exports.setup = function (app, User) {
         title: 'CarlHacks - Update',
         user: user,
         actionSent: 'Update your application',
+        subVerb: 'update',
         additional_js: ['fileUpload.js']
       });
     });
@@ -71,6 +73,7 @@ module.exports.setup = function (app, User) {
         title: 'CarlHacks - Save Error',
         actionSent: 'Please fix the following errors:',
         user: user,
+        subVerb: 'resubmit',
         additional_js: ['fileUpload.js']
       });
     };

@@ -12,13 +12,19 @@ block hero
 block content
   form.card.user(id='user-form', enctype='multipart/form-data', action='/save', method='post')
     h1=actionSent
-    p
-      | We're glad to hear you're interested in coming to CarlHacks! Simply fill out this short form,
-      | and once applications close, we'll email you your acceptance results. Feel free to email us at
-      | <a href="mailto:info@carlhacks.io?subject=Application%20Question">info@carlhacks.io</a> if you have
-      | any questions.
     if 'errors' in user
       p.errors!=user.errors
+    p
+      | We're glad to hear you're interested in coming to CarlHacks! Fill out
+      | this short form to
+      = ' ' + subVerb
+      | . Once applications close, we'll email you
+      | your acceptance results. Feel free to email us at
+      = ' '
+      a(href="mailto:info@carlhacks.io?subject=Application%20Question")
+        | info@carlhacks.io
+      = ' '
+      | if you have any questions.
     fieldset
       if '_id' in user
         input(type='hidden', value=user._id, name='user[id]')
@@ -40,13 +46,13 @@ block content
         input.text(id='user-school', type='text',name='user[school]',required, value=(('school' in user) ? user.school : ''))
       .question
         label(for='user-year')
-          | Year of Graduation
+          | College Graduation Year
           span.short-desc required
         input.number(id='user-year', type='number',name='user[classYear]',required, value=(('classYear' in user) ? user.classYear : 2015))
       .question
         label(for='user-shirt-size')
           | Shirt Size
-        select(id='user-shirt-size',name='user[shirtSize]')
+        select(id='user-shirt-size', name='user[shirtSize]')
           option(value='XS', selected=(('shirtSize' in user) && user.shirtSize == 'XS' ? 'selected' : undefined))
             | X Small
           option(value='S', selected=(('shirtSize' in user) && user.shirtSize == 'S' ? 'selected' : undefined))
@@ -59,6 +65,16 @@ block content
             | X Large
           option(value='XXL', selected=(('shirtSize' in user) && user.shirtSize == 'XXL' ? 'selected' : undefined))
             | XX Large
+      .question
+        label(for='user-bus')
+          | Interested in a Bus?
+        select(id='user-bus', name='user[bus]')
+          option(value='none', selected=(('bus' in user) && user.bus == 'none' ? 'selected' : undefined))
+            | No
+          option(value='airport', selected=(('bus' in user) && user.bus == 'airport' ? 'selected' : undefined))
+            | Yes, from the airport
+          option(value='school', selected=(('bus' in user) && user.bus == 'school' ? 'selected' : undefined))
+            | Yes, from my school
       .question
         label(for='user-urls')
           | Links to Online Profiles
@@ -131,4 +147,4 @@ block content
             input(id='user-agree', type='checkbox', name='user[agree]', checked=(('agree' in user) && user.agree ? 'checked' : undefined))
             | I agree to the <a href="/code-of-conduct">Code of Conduct</a>
             span.short-desc required
-      input.register(type='submit', value='Apply', class='btn btn-primary')
+      input.register(type='submit', value=subVerb, class='btn btn-primary')

@@ -223,6 +223,10 @@ h1.error {
   display: block;
 }
 
+p.errors {
+  color: #FF0B0F;
+}
+
 .card.right {
   padding-left: 6em;
 }

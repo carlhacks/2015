@@ -11,6 +11,7 @@ var User = mongoose.model('User',
         path: {type: String, required: true, trim: true}
      },
      shirtSize: {type: String, required: true, uppercase: true, trim: true},
+     bus: {type: String, required: true, lowercase: true, trim: true},
      dietary: [String],
      idsWoman: Boolean,
      grant: Boolean,
