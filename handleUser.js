@@ -72,7 +72,6 @@ var saveUser = function (model, data, host, callback) {
     };
     user.save(function (error, saved_user) {
       if (error) return callback(error);
-      console.log(saved_user.resume.path, old_resume.path);
       if (old_resume) {
         if (saved_user.resume.path != old_resume.path) {
           fs.unlink(old_resume.path, function (err) {

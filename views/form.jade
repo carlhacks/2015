@@ -48,7 +48,8 @@ block content
             span.desc
               | Current file:
               = ' ' + user.resume.name
-        input.file(id='user-resume', type='file', accept='*', name='resume')
+        input(id='user-resume', type='file', accept='*', name='resume')
+        button.file &lt;upload here&gt;
       .question
         label(for='user-shirt-size')
           span.q.required Shirt Size

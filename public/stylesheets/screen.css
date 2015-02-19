@@ -334,12 +334,25 @@ form.user .question label .desc{
 
 form.user .question input.text,
 form.user .question input.number,
+form.user .question button.file,
 form.user .question textarea {
   border-radius: .25em;
   border: solid 1px #E3E3ED;
   resize: none;
   width: 14em;
 }
+form.user .question button.file {
+  box-sizing: border-box;
+  border: dotted .125em #3D3D85;
+  background: #fff;
+  background-clip: padding-box;
+  padding: .5em 0;
+}
+
+input[type=file] {
+  display: none;
+}
+
 
 form.user .register {
   display: inline-block;

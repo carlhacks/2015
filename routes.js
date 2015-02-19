@@ -23,14 +23,12 @@ module.exports.setup = function (app, User) {
   });
 
   app.get('/register', function(req, res){
-    User.count({}, function( err, count){
-      res.render('form', {
-        title: 'CarlHacks - Register',
-        count: count,
-        user: {},
-        actionSent: 'Register for CarlHacks'
-      });
-    })
+    res.render('form', {
+      title: 'CarlHacks - Register',
+      user: {},
+      actionSent: 'Register for CarlHacks',
+      additional_js: ['fileUpload.js']
+    });
   });
 
   app.get('/update', function (req, res){
@@ -50,7 +48,8 @@ module.exports.setup = function (app, User) {
       res.render('form', {
         title: 'CarlHacks - Update',
         user: user,
-        actionSent: 'Update your account'
+        actionSent: 'Update your account',
+        additional_js: ['fileUpload.js']
       });
     });
   });
@@ -67,7 +66,8 @@ module.exports.setup = function (app, User) {
       return res.render('form', {
         title: 'CarlHacks - Save Error',
         actionSent: 'Please fix the following errors:',
-        user: user
+        user: user,
+        additional_js: ['fileUpload.js']
       });
     };
     if (!req.body || !req.body.hasOwnProperty('user')) {
