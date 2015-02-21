@@ -90,7 +90,7 @@ block content
           | Resume
           span.desc
             | Send us your resume for potential job leads with our sponsors.
-            if 'resume' in user
+            if 'resume' in user && user.resume.name
               br
               | Current file:
               = ' ' + user.resume.name
