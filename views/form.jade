@@ -18,13 +18,15 @@ block content
       | We're glad to hear you're interested in coming to CarlHacks! Fill out
       | this short form to
       = ' ' + subVerb
-      | . Once applications close, we'll email you
-      | your acceptance results. Feel free to email us at
+      | . Feel free to email us at
       = ' '
       a(href="mailto:info@carlhacks.io?subject=Application%20Question")
         | info@carlhacks.io
       = ' '
       | if you have any questions.
+    p
+      | Applications close April 12th.
+      | Attendees will be admitted on a rollling basis.
     fieldset
       if '_id' in user
         input(type='hidden', value=user._id, name='user[id]')
@@ -86,9 +88,10 @@ block content
       .question
         label(for='user-resume')
           | Resume
-          span.short-desc required
-          if 'resume' in user
-            span.desc
+          span.desc
+            | Send us your resume for potential job leads with our sponsors.
+            if 'resume' in user
+              br
               | Current file:
               = ' ' + user.resume.name
         input(id='user-resume', type='file', accept='*', name='resume')

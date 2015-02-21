@@ -7,8 +7,8 @@ var User = mongoose.model('User',
      classYear: {type: Number, required: true, min: 2015, max: 2019},
      urls: [String],
      resume: {
-        name: {type: String, required: true, trim: true},
-        path: {type: String, required: true, trim: true}
+        name: {type: String, trim: true},
+        path: {type: String, trim: true}
      },
      shirtSize: {type: String, required: true, uppercase: true, trim: true},
      bus: {type: String, required: true, lowercase: true, trim: true},

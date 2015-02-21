@@ -96,9 +96,9 @@ var saveUser = function (model, data, host, callback) {
       return mailer.sendText(
         email,
         'Your CarlHacks Application',
-        'Thanks for ' + verbs[0] + '! We will update your acceptance status ' +
-        'as we get closer to the event. In the mean time feel free to ' +
-        verbs[1] + ' here:\n\n' + link + '\n\nFor questions or ' +
+        'Thanks for ' + verbs[0] + '! We will inform you of your acceptance ' +
+        'status as we get closer to the event. In the mean time feel free ' +
+        'to ' + verbs[1] + ' here:\n\n' + link + '\n\nFor questions or ' +
         'assistance, contact info@carlhacks.io and we\'ll get back to you ' +
         'as fast as possible.\n\nThanks!\n-The CarlHacks Team',
         function (error) { callback(error, link); }
