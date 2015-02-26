@@ -42,6 +42,11 @@ block content
           span.short-desc required
         input.text(id='user-email', type='text',name='user[email]',required, value=(('email' in user) ? user.email : ''))
       .question
+        label(for='user-phone')
+          | Phone Number
+          span.short-desc required
+        input.text(id='user-phone', type='text',name='user[phone]',required, placeholder='(123) 549-4839', value=(('phone' in user) ? user.phone : ''))
+      .question
         label(for='user-school')
           | School
           span.short-desc required
