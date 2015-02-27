@@ -53,7 +53,7 @@ var saveUser = function (model, data, host, callback) {
                        .replace(/^https?:\/\//, '');
       if (!validator.isURL(urls[i])) {
         console.log('Bad URL: ', urls[i]);
-        errors += 'Poorly formatted URL: "' + data.email + '".<br>';
+        errors += 'Poorly formatted URL: "' + urls[i] + '".<br>';
       }
     }
     data.urls = urls;
