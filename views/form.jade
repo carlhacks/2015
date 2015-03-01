@@ -42,6 +42,11 @@ block content
           span.short-desc required
         input.text(id='user-email', type='text',name='user[email]',required, value=(('email' in user) ? user.email : ''))
       .question
+        label(for='user-phone')
+          | Phone Number
+          span.short-desc required
+        input.text(id='user-phone', type='text',name='user[phone]',required, placeholder='(123) 549-4839', value=(('phone' in user) ? user.phone : ''))
+      .question
         label(for='user-school')
           | School
           span.short-desc required
@@ -96,7 +101,7 @@ block content
               = ' ' + user.resume.name
         input(id='user-resume', type='file', accept='*', name='resume')
         button.file.register Click to Upload Resume
-      h2 Optional Checkboxes
+      h2 Optional Information
       .question
         .checklist
           label
@@ -117,6 +122,14 @@ block content
               span.desc
                 | Optional priority registration is available for women. Applications with priority registration
                 | will be considered before other applications.
+      .question
+        label(for='user-accessibility')
+          | Accessibility Concerns
+        textarea.text(id='user-accessibility', name='user[accessibility]', rows=3)
+          = (('accessibility' in user) ? user.accessibility : '')
+        span.desc
+          | If you have any disabilities and if there's anything we can do to ensure CarlHacks goes smoothly for you,
+          | please feel free let us know here.
       h2 Dietary Restrictions
       .question
         .checklist
