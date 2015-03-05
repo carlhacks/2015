@@ -26,7 +26,7 @@ a:hover {
   justify-content: center;
   -webkit-align-items: center;
   align-items: center;
-  background-image: radial-gradient(circle at bottom left, #2E3192 0%, #0C0D2A 80%);
+  background: radial-gradient(circle at bottom left, rgba(46, 49, 146, 0.84) 0%, rgba(12, 13, 42, 0.84) 80%), url(/img/herobg.jpg) center center/cover;
   color: #fff;
   position: relative; /* for transparent background hack */
   padding: 9em 0;
@@ -34,19 +34,6 @@ a:hover {
 
 .hero.small {
   padding: 3em 0;
-}
-
-/* hack to get transparent background */
-.hero:after {
-  content: "";
-  background: url(/img/herobg.jpg) center center/cover;
-  opacity: 0.16;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  pointer-events: none;
 }
 
 /* for transparent background hack */
