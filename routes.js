@@ -12,6 +12,14 @@ module.exports.setup = function (app, User) {
     })
   });
 
+  app.get('/team', function(req, res){
+    User.count({}, function( err, count){
+      res.render('team', {
+        title: 'CarlHacks Board'
+      });
+    })
+  });
+
   app.get('/favicon.ico', function (req, res) {
     res.sendFile('img/favicon.png', {root: './public'});
   });
