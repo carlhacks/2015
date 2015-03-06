@@ -274,6 +274,26 @@ p.errors {
   margin: 0;
 }
 
+
+.justify-img {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+div.named-pic {
+  width: 8.5em;
+  display: inline-block;
+  margin-bottom: .75em;
+}
+div.named-pic img {
+  width: 8.5em;
+  display: block;
+}
+div.named-pic p {
+  width: 100%;
+  text-align: center;
+}
+
 p.action {
   width: 100%;
   text-align: center;

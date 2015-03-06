@@ -22,4 +22,8 @@ block content
         img(src='/img/social/twitter.png')
     section.card
       h1 Meet the CarlHacks Team!
-      p &lt;img 1&gt; &lt;img 2&gt; &lt;img 3&gt;...
+      div.justify-img
+        each name in ['Yawen', 'Matt', 'Courtney', 'Raven', 'Nayeley', 'Josh', 'Abha', 'Robert']
+          div.named-pic
+            img(src=('/img/team/' + name + '.jpg'))
+            p=name
