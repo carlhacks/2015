@@ -9,7 +9,7 @@ CarlHacks Website
 1. Change into the new repo's directory with `cd website`.
 1. Install dependencies with `npm install`.
 1. Then do `npm install stylus`.
-1. Then do `touch "api_keys.js`.
+1. Then do `touch api_keys.js`.
 1. Start the Node server with `npm start`.
 1. Visit <http://localhost:8080> to see the site!
 
