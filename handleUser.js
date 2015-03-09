@@ -17,13 +17,14 @@ var USER_KEYS = {
   idsWoman: 1,
   grant: 1,
   noPhoto: 1,
+  eighteen: 1,
   agree: 1,
   resume: 1
 };
 
 var saveUser = function (model, data, host, callback) {
   // map check boxes onto booleans
-  for (key in {idsWoman: 1, grant: 1, noPhoto: 1, agree: 1}) {
+  for (key in {idsWoman: 1, grant: 1, noPhoto: 1, eighteen: 1, agree: 1}) {
     data[key] = data.hasOwnProperty(key)
   };
 
