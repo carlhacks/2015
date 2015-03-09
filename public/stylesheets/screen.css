@@ -26,7 +26,7 @@ a:hover {
   justify-content: center;
   -webkit-align-items: center;
   align-items: center;
-  background: radial-gradient(circle at bottom left, rgba(46, 49, 146, 0.84) 0%, rgba(12, 13, 42, 0.84) 80%), url(/img/herobg.jpg) center center/cover;
+  background: radial-gradient(circle at bottom left, rgba(46, 49, 146, 0.74) 0%, rgba(12, 13, 42, 0.74) 80%), url(/img/herobg.jpg) center center/cover;
   color: #fff;
   position: relative; /* for transparent background hack */
   padding: 9em 0;
