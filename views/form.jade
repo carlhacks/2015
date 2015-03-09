@@ -156,11 +156,18 @@ block content
             span.check-label Halal
           .desc
             | Other eating restrictions or allergies? Email <a href="mailto:info@carlhacks.io?subject=Dietary%20Restrictions">info@carlhacks.io</a> after applying.
+      h2 Age
+      .question
+        .checklist
+          label
+            input(id='user-eighteen', type='checkbox', name='user[eighteen]', checked=(('eighteen' in user) && user.eighteen ? 'checked' : undefined))
+            | I'm at least 18 years old
+            .desc This is for organizational purposes, those under 18 are welcome to apply!
       h2 Terms
       .question
         .checklist
           label
             input(id='user-agree', type='checkbox', name='user[agree]', checked=(('agree' in user) && user.agree ? 'checked' : undefined))
-            | I'm at least 18 and agree to the <a href="/code-of-conduct">Code of Conduct</a>
+            | I agree to the <a href="/code-of-conduct">Code of Conduct</a>
             span.short-desc required
       input.register(type='submit', value=subVerb, class='btn btn-primary')

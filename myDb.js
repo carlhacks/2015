@@ -18,6 +18,7 @@ var User = mongoose.model('User',
      idsWoman: Boolean,
      grant: Boolean,
      noPhoto: Boolean,
+     eighteen: Boolean,
      agree: {type: Boolean, required: true}
     }
 );
