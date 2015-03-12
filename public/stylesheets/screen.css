@@ -370,10 +370,10 @@ a.go-home {
 
 footer {
   margin: 10em 0 0 0;
+  background-color: #1F2165;
 }
 
 footer h1 {
-  background-color: #1F2165;
   padding: 5rem 0;
   width: 100%;
   font-size: 3em;
@@ -394,7 +394,6 @@ footer h1 .bottom-logo img{
 
 footer .sponsors {
   margin: 0;
-  background-color: #fff;
   text-align: center;
   padding: 2rem 0 6rem 0;
   box-sizing: border-box;
