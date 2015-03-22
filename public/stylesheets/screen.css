@@ -11,7 +11,7 @@ body {
 }
 
 a, a:visited, a:hover {
-  text-decoration: none;
+  text-decoration: underline;
   color: #1F2165;
   cursor: pointer;
 }
