@@ -11,7 +11,7 @@ body {
 }
 
 a, a:visited, a:hover {
-  text-decoration: none;
+  text-decoration: underline;
   color: #1F2165;
   cursor: pointer;
 }
@@ -274,6 +274,43 @@ p.errors {
   margin: 0;
 }
 
+
+.justify-img {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+div.named-pic {
+  width: 8.5em;
+  display: inline-block;
+  margin-bottom: .75em;
+}
+div.named-pic img {
+  width: 8.5em;
+  display: block;
+  border-radius: 3px;
+}
+div.named-pic p {
+  width: 100%;
+  text-align: center;
+}
+
+.card.team img {
+  width: 12em;
+  padding-right: 1.25em;
+  display: inline-block;
+  vertical-align: top;
+}
+.card.team p.blurb {
+  display: inline-block;
+  margin: 0;
+  margin-top: -6px;
+  padding: 0;
+  width: calc(100% - 13.25em);
+  min-width: 12em;
+  vertical-align: top;
+}
+
 p.action {
   width: 100%;
   text-align: center;
@@ -498,5 +535,22 @@ footer h1 .bottom-logo img{
   }
   form.user button.file {
     max-width: 18em;
+  }
+
+  .card.team {
+    text-align: center;
+  }
+  .card.team img {
+    padding: 0;
+    margin: 0;
+  }
+  .card.team p.blurb {
+    text-align: left;
+    width: 100%;
+    padding: 0;
+    margin: 1em 0 0 0;
+  }
+  div.named-pic, div.named-pic img {
+    width: 6em;
   }
 }
