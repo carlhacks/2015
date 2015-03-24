@@ -44,6 +44,7 @@ a:hover {
 
 a.hero-link {
   color: #fff;
+  text-decoration: none;
 }
 
 .logo {
@@ -104,6 +105,7 @@ a.hero-link {
   box-sizing: border-box;
   text-align: center;
   margin-bottom: 0.7em;
+  text-decoration: none;
 }
 
 .register:focus {
@@ -115,6 +117,7 @@ a.hero-link {
   background-color: #fff;
   transform: scale(1.03);
   box-shadow: none;
+  text-decoration: none;
 }
 
 .register:active {
