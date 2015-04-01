@@ -23,3 +23,8 @@ CarlHacks Website
 ## Deploying
 
 Once you're done with the deploy setup above, just type `./carlhacks_publish` while in the repo's directory.
+
+## Export
+````
+mongoexport --db carlhacks --collection users --csv --fieldFile userfields.txt --out ./applicants.csv
+````
