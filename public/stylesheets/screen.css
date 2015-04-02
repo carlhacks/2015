@@ -436,13 +436,13 @@ footer h1 .bottom-logo img{
 .sponsors {
   margin: 0;
   text-align: center;
-  padding: 2rem 0;
   box-sizing: border-box;
 }
 
 .sponsors>img {
-  margin: 0 2em;
+  margin: 1em 1em;
   vertical-align: middle;
+  box-sizing: border-box;
 }
 
 .sidebar {
