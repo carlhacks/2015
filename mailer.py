@@ -10,7 +10,7 @@ for name, email, id_ in accept:
     name_esc = urllib.quote_plus(name)
     url = ("https://docs.google.com/forms/d/1slf5fwjCimmfcDTcwpFWYbcYOtLkMiPk9"
            "0l4FAvr5GY/viewform?entry.1756404128={}&entry.2122951986={}&entry."
-           "217987429={}&entry.1987886039=Yes".format(name_esc, email, id_))
+           "217987429={}".format(name_esc, email, id_))
     envelope = Envelope(
         from_addr=(u'info@carlhacks.io', u'CarlHacks'),
         to_addr=(email, name),
@@ -24,6 +24,7 @@ for name, email, id_ in accept:
                     # "Unfortunately, we are unable to offer you a flight "
                     # "reimbursements, but we will provide buses from the "
                     # "airport and nearby schools.\n\n"
+                    "Feel free to reply to this email with any questions.\n"
                     "See you soon!\nThe CarlHacks Team".format(url))
     )
     try:
