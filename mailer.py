@@ -8,6 +8,7 @@ from config import PASS
 
 for name, email, id_ in accept:
     name_esc = urllib.quote_plus(name)
+    print 'emailing {} <{}>, id: {}'.format(name, email, id_)
     url = ("https://docs.google.com/forms/d/1slf5fwjCimmfcDTcwpFWYbcYOtLkMiPk9"
            "0l4FAvr5GY/viewform?entry.1756404128={}&entry.2122951986={}&entry."
            "217987429={}".format(name_esc, email, id_))
@@ -30,6 +31,7 @@ for name, email, id_ in accept:
     try:
         envelope.send('mail.gandi.net', login='info@carlhacks.io',
                       password=PASS, tls=True)
-    except Exception:
+    except Exception as e:
         print 'Failed:'
         print name, email, id_, '\n'
+        print e, '\n'
