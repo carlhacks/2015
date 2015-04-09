@@ -1,0 +1,5 @@
+// get schools
+var schools = db.users.aggregate( [ { $match: { ss: {$gte: 1} } }, { $group: { _id: "$school", count: { $sum: 1 } } } ] ).forEach(function (s) { print(s._id, s.count) });
+
+// school bus only
+var schools = db.users.aggregate( [ { $match: { ss: {$gte: 1}, bus: "school" } }, { $group: { _id: "$school", count: { $sum: 1 } } } ] ).forEach(function (s) { print(s._id, s.count) });
