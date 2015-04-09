@@ -34,3 +34,7 @@ api_keys.js
 
 uploads/*
 !uploads/.gitkeep
+
+config.py
+to_accept.py
+*.pyc
