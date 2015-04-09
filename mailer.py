@@ -22,9 +22,8 @@ for name, email, id_ in accept:
                     "Please fill out this form to confirm your attendance:\n"
                     "{}\n\nAlso check out our \"What to Bring\" list:\n"
                     "http://carlhacks.io/bring\n\n"
-                    # "Unfortunately, we are unable to offer you a flight "
-                    # "reimbursements, but we will provide buses from the "
-                    # "airport and nearby schools.\n\n"
+                    "Unfortunately, travel grant decisions are not available "
+                    "at this time.\n\n"
                     "Feel free to reply to this email with any questions.\n"
                     "See you soon!\nThe CarlHacks Team".format(url))
     )
