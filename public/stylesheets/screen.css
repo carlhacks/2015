@@ -314,6 +314,19 @@ div.named-pic p {
   vertical-align: top;
 }
 
+.card.news {
+  padding: 1em;
+  border: 1px solid rgb(31, 33, 101);
+  background-color: transparent;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.card.news:hover {
+  border-color: #342dd5;
+}
+
 p.action {
   width: 100%;
   text-align: center;
