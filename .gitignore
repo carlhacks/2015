@@ -39,4 +39,5 @@ config.py
 carleton_mailer.py
 emails.py
 to_accept.py
+to_exclude.py
 *.pyc
