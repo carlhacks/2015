@@ -25,7 +25,7 @@ block content
       = ' '
       | if you have any questions.
     p
-      | Applications close <del>April 12th</del> <strong>extended deadline is April 15th</strong>.
+      | Applications close <del>April 12th</del> <strong>extended deadline is April 17th</strong>.
       | Attendees will be admitted on a rolling basis.
     fieldset
       if '_id' in user
@@ -105,11 +105,10 @@ block content
       .question
         .checklist
           label
-            input(id='user-need-grant', type='checkbox', name='user[grant]', checked=(('grant' in user) && user.grant ? 'checked' : undefined))
+            input(id='user-need-grant', type='checkbox', name='user[grant]', disabled=true, checked=(('grant' in user) && user.grant ? 'checked' : undefined))
             span I would like to apply for a travel grant.
             span.desc
-              | If you're taking a flight to CarlHacks, there are a limited number of grants
-              | to help pay for airfare.
+              | Travel grants are not available for late registrants. If you've already applied, decisions will be mailed very shortly.
           label
             input(id='user-no-photo', type='checkbox', name='user[noPhoto]', checked=(('noPhoto' in user) && user.noPhoto ? 'checked' : undefined))
             span Please do <em>not</em> take photos of me.
