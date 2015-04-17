@@ -39,7 +39,7 @@ module.exports.setup = function (app, User) {
   });
 
   app.get('/schedule', function(req, res){
-    res.render('schedule', {title: 'CarlHacks - What to Bring'});
+    res.render('schedule', {title: 'CarlHacks - Event Schedule'});
   });
 
   app.get('/apply', function(req, res){
