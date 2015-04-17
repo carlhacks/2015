@@ -570,3 +570,22 @@ footer h1 .bottom-logo img{
     width: 6em;
   }
 }
+
+.day span {
+  padding-bottom: .375em;
+  vertical-align: top;
+}
+
+.day .time {
+  width: 8em;
+  display: inline-block;
+  text-align: right;
+  color: #1F2165;
+}
+
+.day .desc {
+  width: calc(100% - 8em);
+  display: inline-block;
+  box-sizing: border-box;
+  padding-left: .5em;
+}

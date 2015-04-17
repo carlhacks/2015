@@ -38,6 +38,10 @@ module.exports.setup = function (app, User) {
     res.render('bring', {title: 'CarlHacks - What to Bring'});
   });
 
+  app.get('/schedule', function(req, res){
+    res.render('schedule', {title: 'CarlHacks - What to Bring'});
+  });
+
   app.get('/apply', function(req, res){
     res.render('form', {
       title: 'CarlHacks - Apply',
