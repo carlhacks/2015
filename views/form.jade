@@ -10,6 +10,10 @@ block hero
     span.subheader-fact Northfield, MN
 
 block content
+  section.card
+    h1 Registration has closed
+    p If you have not recieved an email with your acceptance status, please email <a href='mailto:info@carlhacks.io'>info@carlhacks.io</a>.
+//- block content
   form.card.user(id='user-form', enctype='multipart/form-data', action='/save', method='post')
     h1=actionSent
     if 'errors' in user
