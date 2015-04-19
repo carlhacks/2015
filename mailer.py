@@ -11,10 +11,10 @@ ACCEPT = (u"Welcome to CarlHacks!\n\n"
            "This email confirms that you are accepted to CarlHacks. "
            "We are looking forward to seeing you at the event!\n\n"
            "Please fill out this form to confirm your attendance:\n"
-           "{form_url}\n\nAlso check out our \"What to Bring\" list:\n"
-           "http://carlhacks.io/bring\n\n"
-           "Unfortunately, travel grant decisions are not available "
-           "at this time.\n\n"
+           "{form_url}\n\nAlso check out our \"What to Bring\" list and "
+           "full event schedule:\n"
+           "http://carlhacks.io/bring\n"
+           "http://carlhacks.io/schedule\n\n"
            "Feel free to reply to this email with any questions.\n"
            "See you soon!\nThe CarlHacks Team",
           u'CarlHacks Acceptance')
@@ -66,7 +66,7 @@ NO_GRANT = (u"Hi {name},\n\n"
              "to CarlHacks, please fill out this form! {form_url}",
             u'CarlHacks Travel Grant Decision')
 
-USE = NO_GRANT
+USE = ACCEPT
 
 for name, email, id_ in accept:
     if email in exclude:
