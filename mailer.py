@@ -3,7 +3,7 @@ import urllib
 from envelopes import Envelope, GMailSMTP
 
 from config import PASS
-from to_accept import accept
+from to_email import emails
 from to_exclude import exclude
 
 
@@ -66,9 +66,29 @@ NO_GRANT = (u"Hi {name},\n\n"
              "to CarlHacks, please fill out this form! {form_url}",
             u'CarlHacks Travel Grant Decision')
 
-USE = ACCEPT
+SORRY_MINOR = (u"Dear {name},\n\n"
+                "We regret to inform you that this year, CarlHacks is unable "
+                "to admit any minors not attending Carleton College. Our "
+                "plan all along had been to accept anyone wishing to "
+                "participate. Just this week however, we were informed by the "
+                "person in charge of liability for our venue that they were "
+                "no longer going to allow us to have minors attend the "
+                "event. Though the circumstances are beyond our control, "
+                "we apologize for the suddenness of this news.\n\n"
+                "We are deeply sorry that we can't invite you to CarlHacks "
+                "this year, but we hope you keep us in mind in the future. "
+                "We also want you to know that we are working with liability "
+                "to resolve this issue and allow minors for future "
+                "CarlHacks hackathons.\n\n"
+                "Sorry to have to be emailing with bad news, but we wish you "
+                "all the best. If you have any questions, please feel free "
+                "to email us.\n\n"
+                "Sincerely,\nThe CarlHacks Board",
+               u'CarlHacks Update')
 
-for name, email, id_ in accept:
+USE = SORRY_MINOR
+
+for name, email, id_ in emails:
     if email in exclude:
         continue
     name_esc = urllib.quote_plus(name)
