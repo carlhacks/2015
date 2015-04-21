@@ -460,6 +460,8 @@ footer h1 .bottom-logo img{
 
 .sponsors>img {
   margin: 1em 1em;
+  height: auto;
+  max-width: 100%;
   vertical-align: middle;
   box-sizing: border-box;
 }
