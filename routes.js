@@ -34,8 +34,12 @@ module.exports.setup = function (app, User) {
     res.render('code', {title: 'CarlHacks - Code of Conduct'});
   });
 
+  app.get('/info', function(req, res){
+    res.render('info', {title: 'CarlHacks - Event Information'});
+  });
+
   app.get('/bring', function(req, res){
-    res.render('bring', {title: 'CarlHacks - What to Bring'});
+    res.redirect('/info#bring')
   });
 
   app.get('/schedule', function(req, res){

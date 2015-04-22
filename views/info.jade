@@ -1,0 +1,70 @@
+extends layout
+
+block hero
+  a(href="/").hero-link
+    h1
+      span.logo-word Carl
+      span.logo-word Hacks
+  span.subheader
+    span.subheader-fact April 24–26
+    span.subheader-fact Northfield, MN
+
+block content
+  section.card
+    h1 Event Information
+    p Hey CarlHackers!
+    p CarlHacks is getting closer, and we are all super excited to see what you will end up creating this weekend! The CarlHacks Board wanted to take a few minutes to pass a few details in regards to the event.
+  section.card.left.transport
+    h1 Getting to CarlHacks
+    h2 By Car
+    p CarlHacks will be hosted at the <a href="https://www.google.com/maps?hl=en&q=rec+center,+carleton+college">Recreation Center Field House</a> at Carleton College. There is a parking lot right next to the Rec for your automobile storage needs.
+    h2 By Plane
+    p
+      | The bus to CarlHacks from MSP will be an easily identifiable yellow Northfield Lines school bus (just like the old days),
+      | and will leave from the MSP Terminal #1/MSP Lindberg Terminal Airport Transit Center at 6:25pm on Friday. <strong>Please be
+      | at the Transit center by 6:15pm.</strong> If you arrive in Terminal 2, you will need to take the light rail to Terminal 1.
+      | <strong>If your flight arrives later than 5:45pm on Friday or leaves before 5:30pm on Sunday, please let us know ASAP</strong> and we will
+      | work on getting you later/earlier transport.
+    p If you're having trouble with finding the bus spot on the day of the event, our board member Robert will be on the airport bus. You can call him at <a href="tel:+15107615673">510-761-5673</a>.
+    h2 By Bus from the University of Minnesota or Macalester College
+    p There will be two stops from which the bus will pick up Twin Cities hackers. Look out for the yellow Northfield Lines school bus at the following locations:
+    ul
+      li
+        p
+          strong University of Minnesota Dinkytown McDonalds
+          = " "
+          | (<a href="https://www.google.com/maps/place/SE+4th+St+%26+15th+Ave+SE/@44.9799079,-93.2344583,19z/data=!4m3!3m2!1s0x52b32d1109c558cb:0xea3b3fbdc40e3a54!4b1?hl=en">4th St E &amp; 15th Ave SE</a>) The bus will be there at approximately 6:45pm, so please be ready to go at 6:40.
+      li
+        p
+          strong Macalester College Campus, Carnegie Hall
+          = " "
+          | (<a href="https://www.google.com/maps/place/Lincoln+Ave+%26+S+Macalester+St,+St+Paul,+MN+55105/@44.9390374,-93.1695604,17z/data=!3m1!4b1!4m2!3m1!1s0x87f62a18443b8ca1:0x808ccf22e23a119a?hl=en">S Macalester St &amp; Lincoln Ave</a>) The bus will be there at approximately 7:10pm, so please be ready to go at 7pm.
+
+    p If you're having trouble with finding the bus spot on the day of the event, our board member Raven will be on the bus. You can call him at <a href="tel:+16513076537">651-307-6537</a>.
+    p On Sunday, the buses will arrive at the same stops between 4pm and 5pm.
+
+  section.card
+    h1#bring What to Bring
+    p We recomend that you bring the following items to CarlHacks:
+      ul
+        li Laptop and charger
+        li Ethernet cable (if desired)
+        li Phone charger
+        li Student ID
+        li Toiletries and change of clothes
+    p Also, these are some nice-to-haves:
+      ul
+        li Hardware (if you're planning on doing a hardware hack. We will also have limited hardware available for borrowing.)
+        li Towel, shower shoes, and other shower supplies
+        li Pillow &amp; blanket (we'll have airbeds, but no sheets)
+  section.card
+    h1 GET READY
+    p By participating at CarlHacks 2015, you are not only participating at the first large scale Hackathon hosted at a small Liberal Arts college, but are also making a powerful statement about the future of diverse thinking in the tech industry.
+    p
+      a(href="mailto:info@carlhacks.io") Let us know
+      = ' '
+      | if you have any questions. We cannot wait to see you at CarlHacks!
+    p 36 hours. Limitless possibilities. What will you create?
+
+  div.card.divider
+    img(src='/img/photo-card-4.jpg')
