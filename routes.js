@@ -43,7 +43,7 @@ module.exports.setup = function (app, User) {
   });
 
   app.get('/schedule', function(req, res){
-    res.render('schedule', {title: 'CarlHacks - Event Schedule'});
+    res.redirect('/info#schedule')
   });
 
   app.get('/apply', function(req, res){
