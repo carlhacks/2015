@@ -38,6 +38,14 @@ module.exports.setup = function (app, User) {
     res.render('resources', {title: 'CarlHacks - Resources for New Programmers'});
   });
 
+  app.get('/idea', function(req, res){
+    res.redirect('/ideas');
+  });
+
+  app.get('/ideas', function(req, res){
+    res.render('ideas', {title: 'CarlHacks - Ideas and Prompts'});
+  });
+
   app.get('/info', function(req, res){
     res.render('info', {title: 'CarlHacks - Event Information'});
   });

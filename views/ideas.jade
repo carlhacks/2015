@@ -1,0 +1,153 @@
+extends layout
+
+block hero
+  a(href="/").hero-link
+    h1
+      span.logo-word Carl
+      span.logo-word Hacks
+  span.subheader
+    span.subheader-fact April 24–26
+    span.subheader-fact Northfield, MN
+
+block content
+  section.card
+    h1 Ideas and Prompts
+    p
+      | We've sourced some ideas from our sponsors and crowdfunding supporters.
+      | Some prizes will be oferred for responses to specific prompts &mdash; see below for info.
+  section.card
+    h1 CanvasFlip
+    p
+      | CanvasFlip is the fastest way to design an interactive prototype.
+      | Watch <a href='https://www.youtube.com/watch?v=6l-ZMyMgbzc'>this 2 minute video</a> to see how it works.
+      | The first 120 CarlHacks participants can get free premium access via this link <a href='http://canvasflip.com/index.php?ref=vincafs120'>canvasflip.com/index.php?ref=vincafs120</a>.
+  section.card
+    h1 KPCB Fellows: Build for Good
+    p
+      | How it works
+    ul
+      li
+        p
+          | Visit <a href='http://kpcbfellows.com/challenges'>kpcbfellows.com/challenges</a>
+          | for more information and to access the challenges
+      li
+        p
+          | Submit to <a href='http://carlhacks.challengepost.com/'>ChallengePost</a> for judging, and also submit to <a href='http://kpcbfellows.com/challenges'>kpcbfellows.com/challenges</a>
+      li
+        p
+          | Judges from CarlHacks will walk around during the expo and choose the best submission
+      li
+        p
+          | The members of that group will be awarded automatic finalist standing for the 2016 KPCB Fellows Program as well as a $500 cash prize
+    p
+      | Criteria
+    ul
+      li
+        p
+          | Clearly addresses one of the KPCB Fellows challenges
+      li
+        p
+          | Submitted to CarlHacks challenge post and to <a href='http://kpcbfellows.com/challenges'>kpcbfellows.com/challenges</a>
+      li
+        p
+          | Offers a really scalable solution to the challenge
+      li
+        p
+          | Realistic and implementable by the nonprofit
+      li
+        p
+          | Creative approach to the problem
+      li
+        p
+          | Gives the nonprofit a good starting off point to run with the solution
+  section.card
+    h1 Codeweavers Wine Challenges
+    p
+      | <a href='https://www.codeweavers.com'>CodeWeavers</a> is sponsoring <a href='https://www.winehq.org'>Wine</a>-related challenges for C programmers at CarlHacks 2015 with
+      | $2,200 in prizes.
+      | Visit <a href='https://www.winehq.org/~jwhite/carlhacks.html'>www.winehq.org/~jwhite/carlhacks.html</a> for more info.
+  section.card
+    h1 Walk With a Doc
+    p
+      | App to connect the WWAD community and encourage daily physical activity.
+      | Prizes are oferred.
+      | Full details available <a href='/pdf/WWAD.pdf'>here</a>.
+  section.card
+    h1 Smarter Text Suggestions
+    p
+      strong Your smartphone tries to finish your sentences using your past history. What if it finished your sentences with the sentences of someone smarter or funnier, e.g. famous writers?
+    p
+      | “The background for this idea comes from the observation that my cell phone provides suggestions
+      | for words as I type. I am pretty sure all it is doing is looking at the sequence of words I have
+      | typed in the past and suggesting the second word of a pair of frequent words pairs. I.e, if I
+      | type ‘leaving now’ a lot then typing the word ‘leaving’ finds that ‘leaving now’ was typed
+      | often in the past and thus suggests “now” as the next word.  However, one could learn such
+      | work associates not from one’s past history, but from a corpus of text written by another
+      | person. Anything from an online blog to a classic work by a renowned author. Then if you
+      | type a word used by that other author, the system would suggest possibilities to follow
+      | so that your text would be similar in style to that of the other (potentially more witty,
+      | crude etc) person.
+      br
+      br
+      | There is one problem with the above: your basic vocabulary may be so different from the other person’s
+      | that no initial suggestions are triggered. To get around that, you should use a thesaurus to map the word
+      | you type into the common words of similar meaning used by the other person. Thus, you would also get 
+      | suggestions for single word replacements as well.” - Stephen Schiller
+  section.card
+    h1 Geolocation-Based Game
+    p
+      | The user can map an area geographically (e.g. they can plot out the corners of a real room).
+      | The app then places a fictional object within the plotted area (e.g. a mine).
+      | The app then acts like a metal detector or compass indicating when the user moves closer or
+      | farther from the object. When the device reaches the real-world location corresponding to
+      | the object, it loads content (e.g. something to disarm the mine).
+      br
+      br
+      | A team that addresses this challenge may have the opportunity to interview with a new startup
+      | in the Saint Louis area. Submitted by Kirk Damman ‘96.
+  section.card
+    h1 Automatic Video Recorder
+    p
+      | Shoots video constantly, maintaining a buffer of a few minutes. When triggered, you can save a video of the last few minutes. Trigger could be: 1. A button 2. A voice command 3. Impact detection. Submitted by Jerome Schiller.
+  section.card
+    h1 Shazam for Bird Calls
+    p
+      strong Identify a bird by recording the sound of its call.\
+    p
+      | “There are number of apps that let you play bird calls of known birds.
+      | But I want an app that lets you record a bird call and then tells you what it is by comparing
+      | the bird call to all those in the data base. Actually this is a hard problem. For one,
+      | the recording you make will have a lot of background noise that will need to 
+      | ignored some how. Second the bird call you hear wont be at like the recorded one:
+      | it will only have certain features that are similar. You would have to analyze both
+      | recordings (the one you make and the data base one) for certain frequency patterns
+      | that are discriminative and key off of those. The best approach would be to use
+      | machine learning and train a classifier to discriminate amongst the bird calls in the
+      | data base, and then input your recording to that.” - Stephen Schiller
+
+  section.card
+    h1 Name That Color
+    p
+      strong Identify colors with the camera. Useful for colorblind people or for learning fancy color names. Technical challenge: allow white balancing.
+    p
+      | “Since I am partially red/green color blind I don’t always know what the color of an object is.
+      | For example if I am buying clothes sometimes I want to know if the color is really loud
+      | but I can’t tell. Another use is that artists have a lot of names for colors that most people
+      | don’t readily know. Like Taupe or ecru. It would be nice if any old person could point their
+      | phone or device at something and get the sophisticated color name for it.
+      br
+      br
+      | Interface: you would take a picture and then tap the part of the picture that you want the color name 
+      | for. The app would map the RGB coordinates of the mean color of the tapped area into a color cube 
+      | labeled with color names. And give you the top suggestions. 
+      br
+      br
+      | The main technical problem is that if the ambient light has a color cast to it then the RGB color 
+      | measured by the camera will be off from the inherent color. The classic way around this is to 
+      | take another picture of a gray card and use that to get the color of the ambient light. However
+      | most of us don’t carry a gray card around with us. But here is an idea: take a second picture of
+      | anything that you always carry around with you to get information on the ambient light. (Like
+      | maybe the the back of your hand.) Sure that isn’t gray but if you know the true color of this familiar
+      | object  then you can still get useful information about the color the ambient light by comparing 
+      | the color of the familiar object with its true color. (The familiar object would have to be relative
+      | light in color, non reflective and not have any strong color cast.)” - Stephen Schiller
