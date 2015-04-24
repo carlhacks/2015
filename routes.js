@@ -34,6 +34,10 @@ module.exports.setup = function (app, User) {
     res.render('code', {title: 'CarlHacks - Code of Conduct'});
   });
 
+  app.get('/resources', function(req, res){
+    res.render('resources', {title: 'CarlHacks - Resources for New Programmers'});
+  });
+
   app.get('/info', function(req, res){
     res.render('info', {title: 'CarlHacks - Event Information'});
   });

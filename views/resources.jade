@@ -1,0 +1,73 @@
+extends layout
+
+block hero
+  a(href="/").hero-link
+    h1
+      span.logo-word Carl
+      span.logo-word Hacks
+  span.subheader
+    span.subheader-fact April 24–26
+    span.subheader-fact Northfield, MN
+
+block content
+  section.card
+    h1 Resources for New Programmers
+    p CarlHacks is an opportunity to improve your coding ability, whether you haven't written a line of code before, or you've been coding for years. If you're new to programming, this page has some good resources for getting started.
+  section.card
+    h1 Workshops
+    p We'll have a number of intro programming workshops from 9:30pm to 12:30 on Friday night. All are optional, so feel free to come to as many or as few as you'd like!
+    ul
+      li
+        p
+          strong 9:30pm
+          = " — "
+          | The Basics of Code
+      li
+        p
+          strong 10:30pm
+          = " — "
+          | Intro to Git and Github
+      li
+        p
+          strong 11:30pm
+          = " — "
+          | Intro to Game Dev w/ HTML5
+  section.card
+    h1 Online Resources
+    p If you're interested in learning Python, a popular language for beginners that is also used by scientists and data analysis, these are some good places to get started:
+    ul
+      li
+        p
+          a(href='http://getpython3.com/diveintopython3/') Dive Into Python 3
+      li
+        p
+          a(href='http://learnpythonthehardway.org/book/') Learn Python the Hard Way
+    p If you're interested in learning HTML and CSS, the languages used for designing websites, here are some good starting places:
+    ul
+      li
+        p
+          a(href='http://learn.shayhowe.com/html-css/') Learn to Code HTML &amp; CSS
+      li
+        p
+          a(href='http://learn.shayhowe.com/advanced-html-css/') Learn to Code Advanced HTML &amp; CSS
+    p There is also Javascript, an extremely popular language used with HTML and CSS to make websites interactive. These are some good starting places for Javascript:
+    ul
+      li
+        p
+          a(href='http://eloquentjavascript.net/00_intro.html') Eloquent Javascript
+      li
+        p
+          a(href='http://www.codecademy.com/tracks/javascript') Codecademy for Javascript
+  section.card
+    h1 Asking for Help
+    p
+      | Before asking for help trying to get something to work, try your best to reason through the problem yourself. Sometimes <a href="https://en.wikipedia.org/wiki/Rubber_duck_debugging">rubber duck debugging</a> can help,
+      | as well as searching Google for information or to see if another person online had the same problem as you.
+    p
+      | If you're still stuck, feel completely free to ask for help in the #help channel in <a href="http://chat.carlhacks.io">our chat system</a>.
+      | In addition to getting help from your fellow participants, we'll try our best to keep an eye on the channel ourselves. We'll also tell mentors to watch
+      | the channel as well.
+    p
+      | You might feel like your problem is too small or insignificant to trouble other people with, but just remember &mdash; we were <em>all</em> beginners at some point,
+      | and we likely ran across the some problem and got stuck as well. Just ask!
+
