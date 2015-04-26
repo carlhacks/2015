@@ -601,3 +601,16 @@ footer h1 .bottom-logo img{
   box-sizing: border-box;
   padding-left: .5em;
 }
+
+
+.badge {
+  font-size: 0.8rem;
+  background-color: #1F2165;
+  padding: 0.2em 0.5em 0.17em 0.5em;
+  color: #fff;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0.2em;
+  margin-left: 0.4em;
+}
