@@ -1,0 +1,57 @@
+extends layout
+
+block hero
+  a(href="/").hero-link
+    h1
+      span.logo-word Carl
+      span.logo-word Hacks
+  span.subheader
+    span.subheader-fact April 24–26
+    span.subheader-fact Northfield, MN
+
+block content
+  section.card
+    h1 2015 Winners
+    p Congratulations to everybody who participated in CarlHacks 2015! We're all so proud of what everybody built.
+    p Below is a list of the teams that won prizes:
+    ul
+      li
+        p
+          strong First Place
+          = " "
+          | Fresh Eyes
+      li
+        p
+          strong Second Place
+          = " "
+          | Waypoint
+      li
+        p
+          strong Third Place
+          = " "
+          | Rational Fraction Generator
+      li
+        p
+          strong Best Beginner Hack
+          = " "
+          | Sexodus
+      li
+        p
+          strong Best Education Hack
+          = " "
+          | Guardians of the Galaxy
+      li
+        p
+          strong Best Pebble Hack
+          = " "
+          | Chill Two
+      li
+        p
+          strong Best Use of MongoDB
+          = " "
+          | Waypoint
+      li
+        p
+          strong Wine Bugfix Prize
+          = " "
+          | Adventures in C
