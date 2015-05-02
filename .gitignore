@@ -34,6 +34,7 @@ api_keys.js
 
 uploads/*
 !uploads/.gitkeep
+res
 
 config.py
 carleton_mailer.py
