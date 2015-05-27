@@ -62,6 +62,10 @@ module.exports.setup = function (app, User) {
     res.redirect('/info#schedule')
   });
 
+  app.get('/supporters', function(req, res){
+    res.render('supporters', {title: 'CarlHacks - Wall of Fame'});
+  });
+
   app.get('/apply', function(req, res){
     res.render('form', {
       title: 'CarlHacks - Apply',
