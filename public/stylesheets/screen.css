@@ -602,7 +602,6 @@ footer h1 .bottom-logo img{
   padding-left: .5em;
 }
 
-
 .badge {
   font-size: 0.8rem;
   background-color: #1F2165;
@@ -613,4 +612,20 @@ footer h1 .bottom-logo img{
   vertical-align: middle;
   margin-bottom: 0.2em;
   margin-left: 0.4em;
+}
+
+.supporter-list {
+  text-align: center;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 540px) {
+  .supporter-list {
+    column-count: 2;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    text-align: left;
+    padding-left: 40px;
+  }
 }
