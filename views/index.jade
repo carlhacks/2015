@@ -1,7 +1,7 @@
 extends page
 
 block page
-  header.hero
+  header.hero.hero-full
     a(href="/").hero-link
       img(src='/img/logo-white.png').logo
     div
@@ -9,11 +9,12 @@ block page
         h1
           span.logo-word Carl
           span.logo-word Hacks
+          //- span.logo-word &nbsp;2
       span.subheader
-        span.subheader-fact April 24&ndash;26
+        span.subheader-fact spring 2016
         span.subheader-fact Northfield, MN
-      div.register-disabled Registration has Closed
-  main
+      a.register(href="mailto:team@carlhacks.io") Interested in Sponsoring?
+  //-main
     section.social
       a(href='https://www.facebook.com/thereal.carlhacks', target='_blank')
         img(src='/img/social/fb.png')
@@ -153,4 +154,4 @@ block page
         = ' '
         a(href='/team') our team page
         | !
-  +footer
+  //-+footer

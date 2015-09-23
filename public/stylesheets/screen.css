@@ -36,6 +36,11 @@ a:hover {
   padding: 3em 0;
 }
 
+.hero-full {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
 /* for transparent background hack */
 .hero>img, .hero>div, .hero>section {
   position: relative;
